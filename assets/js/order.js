@@ -1,4 +1,5 @@
 mapsApiKey = "AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ"
+submitButtonEl = document.querySelector("#submit")
 
 function initMap() {
     //map options
@@ -17,4 +18,20 @@ var marker = new google.maps.Marker({
     icon: 'https://img.icons8.com/color/48/000000/taco.png'
 });
 }
+
+//add event handler for location search
+submitButtonEl.addEventListener("click", function (event) {
+    event.preventDefault();
+  
+    //get cityname from search input value
+    var cityName = document.querySelector("#location-address").value.trim();
+    console.log(cityName);
+
+    //figure out how to connect cityName to the map- we might need a function to find the lat/
+    //long of each location...?
+
+    //use geolocation, so put a button in order.html that says "click here for to use current location"
+  
+  });
+  
 
