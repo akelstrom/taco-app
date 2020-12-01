@@ -48,11 +48,15 @@
         />
         <button type="submit" id="submit">Submit</button>
       </form>
+
+    <!-- button to get geolocation current location -->
+      Click to use your current location
+      <button id="showMe" class="btn">Use My Location</button>
+      
     </section>
 
     <section class="locations">
       <h2>Locations Near You</h2>
-
       <!-- map container -->
       <div class="spots-near-you" id="map"></div>
     </section>
@@ -62,9 +66,12 @@
     </footer>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&callback=initMap">
-</script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&libraries=places&callback=initMap"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
     <script src="assets/js/order.js"></script>
   </body>
 </html>

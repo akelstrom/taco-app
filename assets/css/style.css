@@ -4,8 +4,9 @@
        * element that contains the map. */
 
 #map {
-    height: 400px;
-    width: 100%;
+    height: 50vh;
+    margin-bottom: 10px;
+    display: none;
   }
 
   /* Makes the sample page fill the window.  */
