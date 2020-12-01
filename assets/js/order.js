@@ -3,18 +3,18 @@ mapsApiKey = "AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ";
 submitButtonEl = document.querySelector("#submit");
 
 //button for get users geolocation and show map
-var actionBtn = document.getElementById("showMe");
+var actionBtn = document.getElementById("my-location");
 
 mapArea = document.getElementById("map");
 
-//declare  map and markervariables that will hold the Map and Marker Objects later on
+//declare  map and markervariables that will hold the Map and Marker Objects later on (per google maps doc instructions)
 let map;
 let marker;
 
 //use geolocation to get user location and display that location on the map
 
 //Now we listen for a click event on our button
-actionBtn.addEventListener("click", (e) => {
+actionBtn.addEventListener("click", function() {
   // hide the button
   actionBtn.style.display = "none";
   // call Materialize toast to update user
@@ -40,41 +40,49 @@ function getLocation()  {
   }
 };
 
-// Displays the different error messages
+// function that handles errors, so correct alerts pop up for each error
 function showError(error) {
   mapArea.style.display = "block";
   switch (error.code) {
+      //permission denied error
     case error.PERMISSION_DENIED:
-      mapArea.innerHTML = "You denied the request for your location.";
+      alert("You denied the request for your location.");
       break;
+      //position unavaliable error
     case error.POSITION_UNAVAILABLE:
-      mapArea.innerHTML = "Your Location information is unavailable.";
+      alert("Your Location information is unavailable.");
       break;
+      //timeout error
     case error.TIMEOUT:
-      mapArea.innerHTML = "Your request timed out. Please try again";
+      alert("Your request timed out. Please try again");
       break;
+      //unknown error
     case error.UNKNOWN_ERROR:
-      mapArea.innerHTML =
-        "An unknown error occurred please try again after some time.";
+        alert("An unknown error occurred, please try again later.");
       break;
   }
 };
 //Makes sure location accuracy is high
-const options = {
+var options = {
   enableHighAccuracy: true,
 };
 
+//get users current position and translate that into lat and lon variables
 function displayLocation(position) {
-  const lat = position.coords.latitude;
-  const lng = position.coords.longitude;
+  var lat = position.coords.latitude;
+  var lng = position.coords.longitude;
+  console.log(lat, lng)
+  
   //deconstruction of object
-  const latlng = { lat, lng };
+  var latlng = { lat, lng };
+  console.log(latlng)
   //call map function
   initMap(latlng);
   createMarker(latlng);
   mapArea.style.display = "block";
 };
 
+//function that calls the google maps API, and handles search "request"
 function initMap(latlng) {
   //map options
   var options = {
@@ -83,17 +91,21 @@ function initMap(latlng) {
   };
 
   // map
-  var mapArea = new google.maps.Map(document.getElementById("map"), options);
+  var map = new google.maps.Map(document.getElementById("map"), options);
 
+  //request that handles where the search nearby range is, and the search keywork and type
   var request = {
     location: latlng,
     radius: "500",
-    type: ["Mexican Restaurant"],
+    type: ["restaurant"],
+    keyword: "mexican restaurant"
   };
 
+  //code from instructions of google maps api methods to handle the "request"
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
-}
+  console.log("request results", request)
+};
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -101,18 +113,18 @@ function callback(results, status) {
         createMarker(results[i]);
       }
     }
-}
-  
+    console.log(results)
+};
 
-createMarker = (latlng) => {
+function createMarker(latlng) {
   let markerOptions = {
     position: latlng,
-    map: map,
+    map: mapArea,
     icon: "https://img.icons8.com/color/48/000000/taco.png",
-    animation: google.maps.Animation.BOUNCE,
     clickable: true,
   };
   marker = new google.maps.Marker(markerOptions);
+  console.log("marker",marker)
 };
 
 //add event handler for location search
