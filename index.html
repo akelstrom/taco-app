@@ -2,39 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Taco Lover</title>
-        <link rel="stylesheet" href="./assets/style.css">
+        <title>Taco Lover &hearts;</title>
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="assets/css/style.css" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
 
     <body>
         <!--header/navigation-->
         <header>
-            <h1>
-                <a href="index.html">Taco Lover</a>
-            </h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="make.html">Make</a>
-                    </li>
-                    <li>
-                        <a href="order.html">Order</a>
-                    </li>
-                    <li>
-                        <a href="my-recipes.html">My Recipes</a>
-                    </li>
-                    <li>
-                        <a href="favorite-spots.html">Favorite Taco Spots</a>
-                    </li>
-                </ul>
-            </nav>
+            <nav class="red lighten-1">
+                <div class="nav-wrapper">
+                  <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                    <li><a href="order.html">Order a Taco</a></li>
+                    <li><a href="make.html">Make a Taco</a></li>
+                    <li><a href="my-recipes.html">My Recipes</a></li>
+                    <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+                  </ul>
+                </div>
+              </nav>
+    
+              <ul class="sidenav" id="mobile-demo">
+                <li><a href="order.html">Order a Taco</a></li>
+                <li><a href="make.html">Make a Taco</a></li>
+                <li><a href="my-recipes.html">My Recipes</a></li>
+                <li><a href="favorite-spots.html">Saved Taco Loactions</a></li>
+              </ul>
         </header>
 
-        <section class="hero">
-            <h2>
+<div class="row">
+        
+        <section class="col s5 grey lighten-4">
+            <h5>
                 this is the app that gets a taco in your mouth (quick!) one way or another...
-            </h2>
+            </h5>
 
             <div class="taco-img">
                 <img src="https://img.icons8.com/dotty/80/000000/taco.png" />
@@ -54,33 +61,33 @@
                 </p>
             </div>
         </section>
-       
-        <section class="make-or-order">
-            <h2>
+    
+        
+        <section class="make-or-order col s7">
+            <h4>
                 would you rather...?
-            </h2>
+            </h4>
             
-            <div class="make-btn"></div>
+            <div class="buttons"></div>
                 <a href="make.html">
-                    <button>
+                    <button class="waves-effect waves-light btn-large red lighten-1">
                         make a taco 
                     </button> 
                 </a>
-            </div>
 
-            <div class="order-btn"></div>
                 <a href="order.html">
-                    <button>
+                    <button class="waves-effect waves-light btn-large red lighten-1">
                         order a taco 
                     </button> 
                 </a>
             </div>
         </section>
 
+
+</div>
+
         <footer>
-            <h3>
-                ❤️Made With Love By Alexandra, Veronica, Kesiah, and Carter 
-            </h3>
+                Made With &hearts; By: Alexandra, Veronica, Kesiah, and Carter 
         </footer>
        
     </body>

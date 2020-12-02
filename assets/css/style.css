@@ -18,7 +18,7 @@
 
 /* end map stuff */
 
-/* order page start */
+
 .logo {
     font-family: 'Shrikhand', cursive;
     color: white;
@@ -37,6 +37,8 @@ h6 {
 footer {
     text-align: center;
     color: #ef5350;
+    font-size: 12px;
+    position: sticky
 }
 
 .footer {
@@ -44,4 +46,15 @@ footer {
     padding: 20px;
 }
 
-/* order page end */
+p {
+    color: #ef5350;
+    font-size: 12px;
+}
+
+/* index. html start*/
+
+.make-or-order, button {
+   text-align: center;
+   padding-top:  30 px 
+}
+

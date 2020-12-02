@@ -12,7 +12,7 @@ actionBtn.addEventListener("click", getLocation);
 function getLocation() {
   if (navigator.geolocation) {
 
-    // call Materialize toast to update user 
+    // call Materialize toast to update user *!!why does this appear before geolocation is confirmed??
     M.toast({ html: 'fetching your current location', classes: 'rounded red lighten-1' });
     
     navigator.geolocation.getCurrentPosition(displayLocation);
