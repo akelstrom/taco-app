@@ -1,8 +1,8 @@
 var loadPreviousLocation = function () {
-  //any scores? get from localStorage
+  //if any saved location, get from localStorage
   var faveLocation = localStorage.getItem("faveLocation");
   if (!faveLocation) {
-    // no scores in localStorage? reset to an empty string
+    // if no saved location,  reset to an empty string
     faveLocation = [];
   } else {
     faveLocation = JSON.parse(faveLocation);
@@ -13,14 +13,16 @@ var loadPreviousLocation = function () {
 var saveLocation = function () {
   faveLocation = loadPreviousLocation();
 
-  // get the user's initials and package it into an object with their remaining time
+  // get the user's restaurant and package it into an object with their location
   var restaurant = document.getElementById("location-address").value;
 
-  // push it onto the array of high scores
+  var location = {
+    restaurant: restaurant,
+  };
+
   faveLocation.push(restaurant);
 
-  // sort the scores, largest first
-  location.sort(function (a, b) {
-    return b.score - a.score;
-  });
-};
+  
+//   location.sort(function
+//   });
+// };
