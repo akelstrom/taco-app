@@ -11,6 +11,10 @@ actionBtn.addEventListener("click", getLocation);
 
 function getLocation() {
   if (navigator.geolocation) {
+
+    // call Materialize toast to update user 
+    M.toast({ html: 'fetching your current location', classes: 'rounded red lighten-1' });
+    
     navigator.geolocation.getCurrentPosition(displayLocation);
   }
 }
@@ -51,6 +55,7 @@ function createMarkers(results, status) {
         position: results[i].geometry.location,
         title: "hello",
         clickable: true,
+        animation: google.maps.Animation.BOUNCE, 
         icon:"https://img.icons8.com/color/48/000000/taco.png"
       };
       marker = new google.maps.Marker(markerOptions);
@@ -58,3 +63,9 @@ function createMarkers(results, status) {
     }
   }
 }
+
+//event listener for dropdown nav bar
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
