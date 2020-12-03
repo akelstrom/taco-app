@@ -81,5 +81,13 @@ p {
         padding: 0;
       }
 
-    
+    form label, form input {
+        color: #ef5350;
+    }
+
+     /* label underline focus color */
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+    color: #ef5350;
+  }
     /* end order.html styling */
