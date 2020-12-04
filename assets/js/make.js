@@ -1,5 +1,6 @@
 var recipeContainer = document.getElementById("recipe-container")
 var getRecipeButton = document.getElementById("get-recipe-button")
+var saveRecipeButton = document.getElementById("save-recipe-button")
 
 var randomRecipe = function() {
     fetch(
@@ -10,12 +11,21 @@ var randomRecipe = function() {
         
     })
     .then(function(response) {
-        // var lastRecipe = JSON.parse(response)
-        // var recipe = document.createElement("p");
-        // recipe.textContent = response
         console.log(response)
-    recipeContainer.innerHTML = `<h1>${response.name}</h1> <p>${response.recipe}</p>`
+
+        var index = response.recipe.split('\n').indexOf("-------------")
+        console.log(index);
+        console.log(response.recipe.split('.'));
+
+        //parse recipe to json/html
+        var md = window.markdownit();
+        var result = md.render(response.recipe);
+        console.log(result);
+
+        //add to page
+        recipeContainer.innerHTML = `<p>${result}</p>`
     })
 }
 
+saveRecipeButton.addEventListener('click', saveRecipe);
 getRecipeButton.addEventListener('click', randomRecipe);

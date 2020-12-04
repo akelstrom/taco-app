@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Taco Lover</title>
+    <title>Taco Lover &hearts;</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -10,33 +14,30 @@
   <body>
     <!--header/navigation-->
     <header>
-      <h1>
-        <a href="index.html">Taco Lover</a>
-      </h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="make.html">Make</a>
-          </li>
-          <li>
-            <a href="order.html">Order</a>
-          </li>
-          <li>
-            <a href="my-recipes.html">My Recipes</a>
-          </li>
-          <li>
-            <a href="favorite-spots.html">Favorite Taco Spots</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        <nav class="red lighten-1">
+            <div class="nav-wrapper">
+              <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="make.html">Make a Taco</a></li>
+                <li><a href="my-recipes.html">My Recipes</a></li>
+                <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+              </ul>
+            </div>
+          </nav>
 
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="make.html">Make a Taco</a></li>
+            <li><a href="my-recipes.html">My Recipes</a></li>
+            <li><a href="favorite-spots.html">Saved Taco Loactions</a></li>
+          </ul>
+    </header>
+            
+<div class="container">
     <section class="order">
       <div class="order-taco">
-        <h2>Order Taco</h2>
+        <h4>Order Taco</h4>
       </div>
 
       <!-- <form>
@@ -50,26 +51,27 @@
       </form> -->
 
     <!-- button to get geolocation current location -->
-     <h5 class="btn-instructions">Click here to get a taco spot location near you!</h5>
-      <button id="my-location" class="btn">Use My Location</button>
+     <h6 class="btn-instructions ">We will help you find a taco joint near you! Click here to search your area.</h6>
+      <button class="waves-effect waves-light btn-small red lighten-1" id="my-location"><span class="btn-text">Use My Location <i class="large material-icons">gps_fixed</span></i></button>
       
     </section>
 
     <section class="locations">
-      <h2>Locations Near You</h2>
+      <h5>Locations Near You</h5>
       <!-- map container -->
       <div class="spots-near-you" id="map"></div>
     </section>
 
-    <footer>
-      <h3>Made With ❤️ By Alexandra, Veronica, Kesiah, and Carter</h3>
+    <footer class="footer">
+      Made With &hearts; By Alexandra, Veronica, Kesiah, and Carter 
     </footer>
+</div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&libraries=places&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&callback=initMap&libraries=places"
     ></script>
     <script src="assets/js/order.js"></script>
   </body>
