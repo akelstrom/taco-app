@@ -84,24 +84,60 @@ function createMarkers(results, status) {
       marker = new google.maps.Marker(markerOptions);
       marker.setMap(map);
 
-      console.log(results);
+      //why does this change when switch between how i structure listeners
+      console.log(results, "restaurant data results");
 
-//connect event listener to a function that displays results data
-//getting error at this point.
-      marker.addListener("click", displayData(results, i, map, marker));
+      //connect event listener to a function that displays results data
+      //getting error at this point.
+    //   marker.addListener("click", (results) => {
+    //     var infowindow = new google.maps.InfoWindow({
+    //         content: contentString
+    //       });
+
+    //       //retruns undefined
+    //       console.log(results[i], "listener results at i")
+    //       console.log(results, "results in event listener")
+
+    //       var contentString = `<p> ${results[i].name}</p>`;
+    //       infowindow.setContent(contentString);
+          
+    //       console.log(results)
+    //       console.log(results[i].name);
+        
+    //       infowindow.open(map, marker);
+    //   });
+
+      //this is another type of event listener that displays the function, and has no problem with the results being passed through
+      marker.addListener("click", displayData(results, i));
     }
   }
 }
 
-function displayData(results, position, map, marker) {
+function displayData(results, i) {
   var infowindow = new google.maps.InfoWindow({
-    content: contentString,
-    position: results[position].geometry.location
+    content: contentString
   });
 
-  infowindow.open(map);
+  //why am i getting "null" here?
+  console.log(
+    results[i].geometry.location,
+    "console logging position of markers"
+  );
 
-  var contentString = `<h4> ${results[position].name}</h4>`;
+  //define the content that is displayed in infowindow
+  var contentString = `<p> ${results[i].name}</p>`;
+  //sets the content in the infowindow
+  infowindow.setContent(contentString);
+  //opens the info window (supposed to happen on the click!!!!)
+  infowindow.open(map, marker);
+
+  console.log(results[i].name);
+
+  
+}
+
+function dataList(results, position, map, marker) {
+  var dataListEl = document.getElementById("data-list");
 }
 
 // //event listener for dropdown nav bar
