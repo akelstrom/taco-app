@@ -6,6 +6,7 @@ mapArea = document.getElementById("map");
 
 let map;
 let marker;
+let service;
 
 //event listener for user location button
 actionBtn.addEventListener("click", getLocation);
@@ -66,17 +67,24 @@ function initMap(latlng) {
   };
 
   service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, createMarkers);
+  service.nearbySearch(request, callback);
 }
-
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarkers(results[i], status);
+        listData(results, i);
+      }
+    }
+  }
 //function that handles how the markers work-- need to fix this- why aren't the markers clickable
-function createMarkers(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
+function createMarkers(place, status) {
+    var placeLoc = place.geometry.location;
+    
       let markerOptions = {
-        position: results[i].geometry.location,
-        title: results.name,
+        position: placeLoc,
         clickable: true,
+        title: place.name,
         // animation: google.maps.Animation.BOUNCE,
         icon: "https://img.icons8.com/color/48/000000/taco.png",
       };
@@ -84,12 +92,24 @@ function createMarkers(results, status) {
       marker = new google.maps.Marker(markerOptions);
       marker.setMap(map);
 
+
+      var request = { reference: place.reference };
+
+      service.getDetails(request, function(details, status) {
+        console.log(details, "deets")
+        google.maps.event.addListener(marker, "click", function() {
+            console.log("hello")
+        infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
+        infowindow.open(map, marker);
+      });
+    });
+
       //why does this change when switch between how i structure listeners
-      console.log(results, "restaurant data results");
+    //   console.log(results, "restaurant data results");
 
       //connect event listener to a function that displays results data
       //getting error at this point.
-    //   marker.addListener("click", (results) => {
+    //   marker.addListener("click", function(results,i) {
     //     var infowindow = new google.maps.InfoWindow({
     //         content: contentString
     //       });
@@ -106,13 +126,11 @@ function createMarkers(results, status) {
         
     //       infowindow.open(map, marker);
     //   });
-
+  
       //this is another type of event listener that displays the function, and has no problem with the results being passed through
     //   marker.addListener("click", displayData(results, i));
    
-    }
-    listData(results, i);
-  }
+  
 }
 
 
@@ -137,16 +155,23 @@ function displayData(results, i) {
   console.log(results[i].name);
 };
 
-function listData(results, i) {
+function listData(results) {
   var dataListEl = document.getElementById("data-list");
-  dataListEl.innerHTML = `<h6>Restaurant: ${results[0].name}</h6>
-  <p>Address: ${results[0].vicinity}<p>
+  dataListEl.innerHTML = `<div class="row card-row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-image">
+        <img src="images/sample-1.jpg">
+        <h6 class="bg-light">${results[0].name}</h6>
+        <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <p>Addess: ${results[0].vicinity}</p>
+      </div>
+    </div>
+  </div>
+</div>
   `
-
 }
 
-// //event listener for dropdown nav bar
-// document.addEventListener("DOMContentLoaded", function () {
-//   var elems = document.querySelectorAll(".sidenav");
-//   var instances = M.Sidenav.init(elems, options);
-// });
+
