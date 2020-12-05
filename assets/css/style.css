@@ -1,5 +1,71 @@
-/* map stuff */
+header {
+  display: flex;
+}
+.logo {
+  font-family: "Shrikhand", cursive;
+  color: white;
+  font-size: 50px;
+}
 
+h5,
+h4 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+}
+h6 {
+  color: #ef5350;
+}
+
+footer {
+  text-align: center;
+  color: #ef5350;
+  font-size: 12px;
+  position: sticky;
+}
+
+.footer {
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+  position: absolute;
+}
+
+p {
+  color: #ef5350;
+  font-size: 12px;
+}
+
+/* index. html start*/
+
+.make-or-order,
+button {
+  text-align: center;
+  padding-top: 30 px;
+}
+
+.tagline {
+  padding: 20px 5px 10px 5px;
+  text-align: center;
+}
+
+/* .taco-img {
+    padding-left: 210px;
+} */
+
+.rather {
+  padding: 50px 0 20px 0;
+}
+
+.hero-text {
+  padding: 0 10px 10px 30px;
+}
+
+.parent {
+  text-align: center;
+}
+/* index.html end */
+
+/* order.html styling*/
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
@@ -17,33 +83,14 @@ body {
   padding: 0;
 }
 
-/* end map stuff */
-
-/* order page start */
-.logo {
-  font-family: "Shrikhand", cursive;
-  color: white;
-  font-size: 45px;
-}
-
-h5,
-h4 {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-style: italic;
-  color: #ef5350;
-}
-h6 {
+form label,
+form input {
   color: #ef5350;
 }
 
-footer {
-  text-align: center;
+/* label underline focus color */
+/* label focus color */
+.input-field input[type="text"]:focus + label {
   color: #ef5350;
 }
-
-.footer {
-  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-  padding: 20px;
-}
-
-/* order page end */
+/* end order.html styling */

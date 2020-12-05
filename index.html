@@ -1,9 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Taco Lover</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Taco Lover &hearts;</title>
+        <link rel="icon" href="https://img.icons8.com/color/48/000000/taco.png">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+
+    <body>
+        <!--header/navigation-->
+        <header>
+            <nav class="red lighten-1">
+                <div class="nav-wrapper">
+                  <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                    <ul class="right hide-on-med-and-down"></ul>
+                    <li><a href="order.html">Order a Taco</a></li>
+                    <li><a href="make.html">Make a Taco</a></li>
+                    <li><a href="my-recipes.html">My Recipes</a></li>
+                    <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+                  </ul>
+                </div>
+              </nav>
+    
+              <ul class="sidenav" id="mobile-demo">
+                <li><a href="order.html">Order a Taco</a></li>
+                <li><a href="make.html">Make a Taco</a></li>
+                <li><a href="my-recipes.html">My Recipes</a></li>
+                <li><a href="favorite-spots.html">Saved Taco Loactions</a></li>
+              </ul>
+        </header>
+
+<div class="row">
+        
+        <section class="col s5 grey lighten-4 ">
+            <h5 class="tagline">
+                this is the app that gets a taco in your mouth (quick!) 
+                <br>
+                one way or another...
+            </h5>
+
+            <div class="taco-img parent">
+                <img src="https://img.icons8.com/color/48/000000/taco.png" />
+            </div>
+
+            <div class="hero-text">
+                <p>Hello! Are you a taco lover just like us? You came to the right 
+                place. We will make you an offer that will be tough to refuse...
+                    <br>
+                    <br>
+                So let's taco 'bout it, shall we? All you have to decide is whether 
+                you want to make a taco or order one and we will do (some) of the
+                hard work for you. If you choose to make a taco, we will provide you
+                with a crazy amount of random taco recipes courtesy of taco-fancy. If 
+                you feel like ordering a taco, simply enter your location and BAM, we 
+                will provide you with the nearest taco locations.
+                </p>
+            </div>
+        </section>
+    
+        
+        <section class="make-or-order col s7">
+            <h4 class="rather">
+                would you rather...?
+            </h4>
+            
+            <div class="buttons"></div>
+                <a href="make.html">
+                    <button class="waves-effect waves-light btn-large red lighten-1">
+                        make a taco 
+                    </button> 
+                </a>
+                        <p>OR</p>
+                <a href="order.html">
+                    <button class="waves-effect waves-light btn-large red lighten-1">
+                        order a taco 
+                    </button> 
+                </a>
+            </div>
+        </section>
+
+
+</div>
+
+        <footer>
+                Made With &hearts; By: Alexandra, Veronica, Kesiah, and Carter 
+        </footer>
+       
+    </body>
 </html>
