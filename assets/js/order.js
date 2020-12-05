@@ -75,12 +75,12 @@ function createMarkers(results, status) {
     for (var i = 0; i < results.length; i++) {
       let markerOptions = {
         position: results[i].geometry.location,
-        title: "hello",
+        title: results.name,
         clickable: true,
         // animation: google.maps.Animation.BOUNCE,
         icon: "https://img.icons8.com/color/48/000000/taco.png",
       };
-
+      
       marker = new google.maps.Marker(markerOptions);
       marker.setMap(map);
 
@@ -108,10 +108,13 @@ function createMarkers(results, status) {
     //   });
 
       //this is another type of event listener that displays the function, and has no problem with the results being passed through
-      marker.addListener("click", displayData(results, i));
+    //   marker.addListener("click", displayData(results, i));
+   
     }
+    listData(results, i);
   }
 }
+
 
 function displayData(results, i) {
   var infowindow = new google.maps.InfoWindow({
@@ -132,12 +135,14 @@ function displayData(results, i) {
   infowindow.open(map, marker);
 
   console.log(results[i].name);
+};
 
-  
-}
-
-function dataList(results, position, map, marker) {
+function listData(results, i) {
   var dataListEl = document.getElementById("data-list");
+  dataListEl.innerHTML = `<h6>Restaurant: ${results[0].name}</h6>
+  <p>Address: ${results[0].vicinity}<p>
+  `
+
 }
 
 // //event listener for dropdown nav bar
