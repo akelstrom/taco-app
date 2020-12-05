@@ -15,13 +15,20 @@
   <body>
     <!--header/navigation-->
     <header>
-      <nav class="red lighten-1">
-        <div class="nav-wrapper">
-          <a class="logo" href="index.html">Taco Lover &hearts;</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="material-icons">menu</i></a
-          >
-          <ul id="nav-mobile" class="right">
+        <nav class="red lighten-1">
+            <div class="nav-wrapper">
+              <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="make.html">Make a Taco</a></li>
+                <li><a href="my-recipes.html">My Recipes</a></li>
+                <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+                </ul>
+            </div>
+          </nav>
+
+          <ul class="sidenav" id="mobile-demo">
             <li><a href="index.html">Home</a></li>
             <li><a href="make.html">Make a Taco</a></li>
             <li><a href="my-recipes.html">My Recipes</a></li>
@@ -58,7 +65,9 @@
       <!-- map container -->
       <div class="spots-near-you" id="map"></div>
       <h5>Locations Near You</h5>
-      <div id="data-list"></div>
+      <div id="data-list">
+        
+      </div>
     </section>
 
     <footer class="footer">
@@ -73,5 +82,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&callback=initMap&libraries=places"
     ></script>
     <script src="assets/js/order.js"></script>
+    <script> M.AutoInit(); </script>
   </body>
 </html>
