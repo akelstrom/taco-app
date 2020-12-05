@@ -69,6 +69,7 @@ button {
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
+<<<<<<< HEAD
 #map {
   height: 50vh;
   margin-bottom: 10px;
@@ -94,3 +95,29 @@ form input {
   color: #ef5350;
 }
 /* end order.html styling */
+=======
+       #map {
+        height: 50vh;
+        margin-bottom: 10px;
+        display: none;
+      }
+    
+      /* Makes the sample page fill the window.  */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+    form label, form input {
+        color: #ef5350;
+    }
+
+     /* label underline focus color */
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+    color: #ef5350;
+  }
+
+    /* end order.html styling */
+>>>>>>> a3e600145c5e7f42f91aa4531a08bf2c0809df9d
