@@ -61,7 +61,7 @@ function initMap(latlng) {
 
   var request = {
     location: latlng,
-    radius: "1000",
+    radius: "5000",
     type: ["restaurant"],
     keyword: "mexican",
   };
@@ -73,44 +73,57 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarkers(results[i], status);
-      listData(results, i);
     }
   }
 }
 //function that handles how the markers work-- need to fix this- why aren't the markers clickable
 function createMarkers(place, status) {
-  var placeLoc = place.geometry.location;
-
-  let markerOptions = {
-    position: placeLoc,
-    clickable: true,
-    title: place.name,
-    // animation: google.maps.Animation.BOUNCE,
-    icon: "https://img.icons8.com/color/48/000000/taco.png",
-  };
-
-  marker = new google.maps.Marker(markerOptions);
-  marker.setMap(map);
-
   var request = { reference: place.reference };
-
   service.getDetails(request, function (details, status) {
-    console.log(details, "deets");
-    google.maps.event.addListener(marker, "click", function () {
-      console.log("hello");
-      infowindow.setContent(
-        details.name +
-          "<br />" +
-          details.formatted_address +
-          "<br />" +
-          details.website +
-          "<br />" +
-          details.rating +
-          "<br />" +
-          details.formatted_phone_number
-      );
-      infowindow.open(map, marker);
+    console.log(details);
+    var placeLoc = place.geometry.location;
+
+    let markerOptions = {
+      position: placeLoc,
+      clickable: true,
+      title: place.name,
+      // animation: google.maps.Animation.BOUNCE,
+      icon: "https://img.icons8.com/color/48/000000/taco.png",
+      data: {
+        
+            name = details.name,
+            address = details.formatted_address,
+            website = details.website,
+            rating = details.rating,
+            phoneNumber = details.formatted_phone_number,
+            photo = details.photos[0].getUrl()
+
+      }
+    };
+
+    marker = new google.maps.Marker(markerOptions);
+    marker.addListener("click", function () {
+      listData(marker.data);
+      console.log(this);
     });
+    console.log(marker);
+    console.log(details, "deets");
+    marker.setMap(map);
+    //   google.maps.event.addListener(marker, "click", function () {
+    //     console.log("hello");
+    //     infowindow.setContent(
+    //       details.name +
+    //         "<br />" +
+    //         details.formatted_address +
+    //         "<br />" +
+    //         details.website +
+    //         "<br />" +
+    //         details.rating +
+    //         "<br />" +
+    //         details.formatted_phone_number
+    //     );
+    //     infowindow.open(map, marker);
+    //   });
   });
 
   //why does this change when switch between how i structure listeners
@@ -161,21 +174,37 @@ function displayData(results, i) {
   console.log(results[i].name);
 }
 
-function listData(results) {
+var loadPreviousLocation = function () {
+  //if any saved location, get from localStorage
+  var faveLocation = localStorage.getItem("faveLocation");
+  if (!faveLocation) {
+    // if no saved location,  reset to an empty array
+    faveLocation = [];
+  } else {
+    faveLocation = JSON.parse(faveLocation);
+  }
+  return faveLocation;
+};
+function listData(data) {
   var dataListEl = document.getElementById("data-list");
   dataListEl.innerHTML = `<div class="row card-row">
   <div class="col s12 m6">
     <div class="card">
       <div class="card-image">
-        <img src="images/sample-1.jpg">
-        <h6 class="bg-light">${results[0].name}</h6>
+        <h6 class="bg-light">${data.name}</h6>
         <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
       </div>
       <div class="card-content">
-        <p>Addess: ${results[0].vicinity}</p>
+        <p>Address: ${data.address}</p>
+        <p>Phone Number: ${data.phoneNumber}</p>
       </div>
     </div>
   </div>
 </div>
   `;
+  document.getElementById("save-btn").addEventListener("click", function () {
+    var food = loadPreviousLocation();
+    food.push(data);
+    localStorage.setItem("faveLocation", JSON.stringify(food));
+  });
 }

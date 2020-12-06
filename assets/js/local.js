@@ -22,15 +22,11 @@ var saveLocation = function () {
 
   // faveLocation.push(restaurant);
 };
-navigator.geolocation.getCurrentPosition(
-  function (p) {
-    localStorage.setItem("latitude", p.coords.latitude);
-    localStorage.setItem("longitude", p.coords.longitude);
-  },
-  function (e) {
-    console.log(e);
-  }
-);
+navigator.geolocation.getCurrentPosition(function (p) {
+  localStorage.setItem("latitude", p.coords.latitude);
+  localStorage.setItem("longitude", p.coords.longitude);
+  localStorage.setItem("location");
+});
 
 var lat = localStorage.latitude;
 var lon = localStorage.longitude;
