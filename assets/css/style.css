@@ -6,6 +6,11 @@ header {
   color: white;
   font-size: 50px;
 }
+.logo-small {
+    font-family: "Shrikhand", cursive;
+    color: #ef5350;
+    font-size: 24px;
+}
 
 h5,
 h4 {
@@ -13,6 +18,7 @@ h4 {
   font-style: italic;
   color: #ef5350;
 }
+
 h6 {
   color: #ef5350;
 }
@@ -30,10 +36,7 @@ footer {
   position: absolute;
 }
 
-p {
-  color: #ef5350;
-  font-size: 12px;
-}
+
 
 /* index. html start*/
 
@@ -95,3 +98,28 @@ body {
   opacity: 80%;
 }
 /* end order.html styling */
+
+/* directly relating to styling the recpies on make.html */
+h1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    color: #ef5350;
+    font-size: 32px;
+}
+
+h2 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    color: #ef5350;
+    font-size: 24px;
+}
+
+p, li {
+    color: #ef5350;
+    font-size: 12px;
+}
+  
+a {
+      text-decoration: none;
+}
+/* end styling for make.htnml */
