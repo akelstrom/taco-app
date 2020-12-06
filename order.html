@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Taco Lover &hearts;</title>
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/taco.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
@@ -18,11 +19,12 @@
             <div class="nav-wrapper">
               <a class ="logo" href="index.html">Taco Lover &hearts;</a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                <ul class="right hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="make.html">Make a Taco</a></li>
                 <li><a href="my-recipes.html">My Recipes</a></li>
                 <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
-              </ul>
+                </ul>
             </div>
           </nav>
 
@@ -30,8 +32,17 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="make.html">Make a Taco</a></li>
             <li><a href="my-recipes.html">My Recipes</a></li>
-            <li><a href="favorite-spots.html">Saved Taco Loactions</a></li>
+            <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
           </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="make.html">Make a Taco</a></li>
+        <li><a href="my-recipes.html">My Recipes</a></li>
+        <li><a href="favorite-spots.html">Saved Taco Loactions</a></li>
+      </ul>
     </header>
             
 <div class="container">
@@ -40,30 +51,27 @@
         <h4>Order Taco</h4>
       </div>
 
-      <!-- <form>
-        <label for="location">Your Location</label>
-        <input
-          type="text"
-          placeholder="Enter Your Location"
-          id="location-address"
-        />
-        <button type="submit" id="submit">Submit</button>
-      </form> -->
+      <div class="row">
+        
+                 <!-- button to get geolocation current location -->
+            <p class="btn-instructions ">Click below to find a taco joint nearby!</p>
+            <button class="waves-effect waves-light btn-small red lighten-1" id="my-location"><span class="btn-text">Use My Location <i class="large material-icons">gps_fixed</span></i></button>
+      </div>
 
-    <!-- button to get geolocation current location -->
-     <h6 class="btn-instructions ">We will help you find a taco joint near you! Click here to search your area.</h6>
-      <button class="waves-effect waves-light btn-small red lighten-1" id="my-location"><span class="btn-text">Use My Location <i class="large material-icons">gps_fixed</span></i></button>
-      
+
     </section>
 
     <section class="locations">
-      <h5>Locations Near You</h5>
       <!-- map container -->
       <div class="spots-near-you" id="map"></div>
+      <h5>Locations Near You</h5>
+      <div id="data-list">
+        
+      </div>
     </section>
 
     <footer class="footer">
-      Made With &hearts; By Alexandra, Veronica, Kesiah, and Carter 
+      Made With &hearts; By Alexandra, Veronica, Kesiah, and Carter
     </footer>
 </div>
     
@@ -74,5 +82,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&callback=initMap&libraries=places"
     ></script>
     <script src="assets/js/order.js"></script>
+    <script> M.AutoInit(); </script>
   </body>
 </html>
