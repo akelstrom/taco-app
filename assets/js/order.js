@@ -66,7 +66,8 @@ function initMap(latlng) {
     keyword: "mexican",
   };
 
-  
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
 }
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -89,20 +90,18 @@ function createMarkers(place, status) {
       // animation: google.maps.Animation.BOUNCE,
       icon: "https://img.icons8.com/color/48/000000/taco.png",
       data: {
-        
-            name = details.name,
-            address = details.formatted_address,
-            website = details.website,
-            rating = details.rating,
-            phoneNumber = details.formatted_phone_number,
-            photo = details.photos[0].getUrl()
-
-      }
+        name: details.name,
+        address: details.formatted_address,
+        website: details.website,
+        rating: details.rating,
+        phoneNumber: details.formatted_phone_number,
+        photo: details.photos[0].getUrl(),
+      },
     };
-    
+
     marker = new google.maps.Marker(markerOptions);
     marker.addListener("click", function () {
-      listData(marker.data);
+      listData(this.data);
       console.log(this);
     });
     console.log(marker);
