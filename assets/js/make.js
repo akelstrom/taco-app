@@ -24,5 +24,6 @@ var randomRecipe = function () {
     });
 };
 
-saveRecipeButton.addEventListener("click", saveRecipe);
+
 getRecipeButton.addEventListener("click", randomRecipe);
+saveRecipeButton.addEventListener("click", saveRecipe);

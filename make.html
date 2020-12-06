@@ -3,18 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco Lover &hearts;</title>
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/taco.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Taco Lover</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+    <header>
+        <nav class="red lighten-1">
+            <div class="nav-wrapper">
+              <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="order.html">Order a Taco</a></li>
+                <li><a href="my-recipes.html">My Recipes</a></li>
+                <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+                </ul>
+            </div>
+          </nav>
+
+          <ul class="sidenav" id="mobile-demo">
+            <a class ="logo-small" href="index.html">Taco Lover &hearts;</a>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="order.html">Order a Taco</a></li>
+            <li><a href="my-recipes.html">My Recipes</a></li>
+            <li><a href="favorite-spots.html">Saved Taco Loactions</a></li>
+          </ul>
+    </header>
+
     <div class="container">
-        <button id="get-recipe-button" class="waves-effect waves-light btn-large red lighten-1">Get a Recipe!</button>
-        <div id="recipe-container">
-            
+        <div class="info">
+            <h5>Make yourself a taco today!</h5>
+            <p>All you have to do is click the button below to display a different taco recipe each time you click! You can save the ones you like!</p>
+            <button id="get-recipe-button" class="waves-effect waves-light btn-large red lighten-1">Get a Recipe!</button>
         </div>
-        <button id="save-recipe-button" class="waves-effect waves-light btn-large red lighten-1">Save this Recipe</button>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"></script>
-        <script src="./assets/js/make.js"></script>
+       
+        <div id="recipe-container">
+        </div>  
+        <button id="save-recipe-button" class="waves-effect waves-light btn-small red lighten-1">Save this Recipe</button>
+
     </div>
+    <footer>
+        Made With &hearts; By: Alexandra, Veronica, Kesiah, and Carter 
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/make.js"></script>
+    <script> M.AutoInit(); </script>
+    
 </body>
 </html>
