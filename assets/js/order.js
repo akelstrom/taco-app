@@ -66,8 +66,7 @@ function initMap(latlng) {
     keyword: "mexican",
   };
 
-  service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
+  
 }
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -100,7 +99,7 @@ function createMarkers(place, status) {
 
       }
     };
-
+    
     marker = new google.maps.Marker(markerOptions);
     marker.addListener("click", function () {
       listData(marker.data);
