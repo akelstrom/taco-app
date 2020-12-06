@@ -72,8 +72,9 @@ function initMap(latlng) {
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-        createMarkers(results[i], status);
-        listData(results, i);
+          var place = results[i]
+        createMarkers(place, status);
+        listData(place, i);
       }
     }
   }
@@ -95,10 +96,14 @@ function createMarkers(place, status) {
 
       var request = { reference: place.reference };
 
-      service.getDetails(request, function(details, status) {
+      service.getDetails(request, function(details) {
         console.log(details, "deets")
         google.maps.event.addListener(marker, "click", function() {
             console.log("hello")
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var contentString = `<p> ${details.name}</p>`;
         infowindow.setContent(details.name + "<br />" + details.formatted_address +"<br />" + details.website + "<br />" + details.rating + "<br />" + details.formatted_phone_number);
         infowindow.open(map, marker);
       });
@@ -129,8 +134,6 @@ function createMarkers(place, status) {
   
       //this is another type of event listener that displays the function, and has no problem with the results being passed through
     //   marker.addListener("click", displayData(results, i));
-   
-  
 }
 
 
@@ -155,23 +158,25 @@ function displayData(results, i) {
   console.log(results[i].name);
 };
 
-function listData(results) {
-  var dataListEl = document.getElementById("data-list");
-  dataListEl.innerHTML = `<div class="row card-row">
-  <div class="col s12 m6">
-    <div class="card">
-      <div class="card-image">
-        <img src="images/sample-1.jpg">
-        <h6 class="bg-light">${results[0].name}</h6>
-        <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
+function listData(results, details) {
+    for (var j=0; j < 10; j++) {
+        
+        var dataListEl = document.getElementById("data-list");
+        dataListEl.innerHTML = `<div class="row card-row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/sample-1.jpg">
+              <h6 class="bg-light">${results[0].name}</h6>
+              <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+              <p>Addess: ${results[0].vicinity}</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-content">
-        <p>Addess: ${results[0].vicinity}</p>
-      </div>
-    </div>
-  </div>
-</div>
-  `
+        `
+    }
+  
 }
-
-
