@@ -1,32 +1,10 @@
-var loadPreviousLocation = function () {
-  //if any saved location, get from localStorage
-  var faveLocation = localStorage.getItem("faveLocation");
-  if (!faveLocation) {
-    // if no saved location,  reset to an empty array
-    faveLocation = [];
-  } else {
-    faveLocation = JSON.parse(faveLocation);
-  }
-  return faveLocation;
-};
+var restaurant = localStorage.getItem("favelocation");
+var faveSpot = document.getElementById("getFaveSpot");
+faveSpot.innerHTML = `<header> Hello </header>`;
 
-var saveLocation = function () {
-  var faveLocation = loadPreviousLocation();
+var foodPlaces = localStorage.getItem("faveLocation");
+console.log("foodPlaces: ", JSON.parse(foodPlaces));
 
-  // get the user's restaurant and package it into an object with their location
-  var restaurant = document.getElementById("location-address").value;
+// document.getElementById("getFaveSpot").addEventListener("click", function() {
 
-  // var location = {
-  //   restaurant: restaurant,
-  // };
-
-  // faveLocation.push(restaurant);
-};
-navigator.geolocation.getCurrentPosition(function (p) {
-  localStorage.setItem("latitude", p.coords.latitude);
-  localStorage.setItem("longitude", p.coords.longitude);
-  localStorage.setItem("location");
-});
-
-var lat = localStorage.latitude;
-var lon = localStorage.longitude;
+// });
