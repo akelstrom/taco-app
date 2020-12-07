@@ -68,59 +68,95 @@ function initMap(latlng) {
   };
 
   service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, createMarkers);
+  service.nearbySearch(request, callback);
 }
-
-//function that handles how the markers work-- need to fix this- why aren't the markers clickable
-function createMarkers(results, status) {
+function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-      let markerOptions = {
-        position: results[i].geometry.location,
-        title: results.name,
-        clickable: true,
-        // animation: google.maps.Animation.BOUNCE,
-        icon: "https://img.icons8.com/color/48/000000/taco.png",
-      };
-      
-      marker = new google.maps.Marker(markerOptions);
-      marker.setMap(map);
-
-      //why does this change when switch between how i structure listeners
-      console.log(results, "restaurant data results");
-
-      //connect event listener to a function that displays results data
-      //getting error at this point.
-    //   marker.addListener("click", (results) => {
-    //     var infowindow = new google.maps.InfoWindow({
-    //         content: contentString
-    //       });
-
-    //       //retruns undefined
-    //       console.log(results[i], "listener results at i")
-    //       console.log(results, "results in event listener")
-
-    //       var contentString = `<p> ${results[i].name}</p>`;
-    //       infowindow.setContent(contentString);
-          
-    //       console.log(results)
-    //       console.log(results[i].name);
-        
-    //       infowindow.open(map, marker);
-    //   });
-
-      //this is another type of event listener that displays the function, and has no problem with the results being passed through
-    //   marker.addListener("click", displayData(results, i));
-   
+      createMarkers(results[i], status);
     }
-    listData(results, i);
   }
 }
+//function that handles how the markers work-- need to fix this- why aren't the markers clickable
+function createMarkers(place, status) {
+  var request = { reference: place.reference };
+  service.getDetails(request, function (details, status) {
+    console.log(details);
+    var placeLoc = place.geometry.location;
 
+    let markerOptions = {
+      position: placeLoc,
+      clickable: true,
+      title: place.name,
+      // animation: google.maps.Animation.BOUNCE,
+      icon: "https://img.icons8.com/color/48/000000/taco.png",
+      data: {
+        
+            name = details.name,
+            address = details.formatted_address,
+            website = details.website,
+            rating = details.rating,
+            phoneNumber = details.formatted_phone_number,
+            photo = details.photos[0].getUrl()
+
+      }
+    };
+
+    marker = new google.maps.Marker(markerOptions);
+    marker.addListener("click", function () {
+      listData(marker.data);
+      console.log(this);
+    });
+    console.log(marker);
+    console.log(details, "deets");
+    marker.setMap(map);
+    //   google.maps.event.addListener(marker, "click", function () {
+    //     console.log("hello");
+    //     infowindow.setContent(
+    //       details.name +
+    //         "<br />" +
+    //         details.formatted_address +
+    //         "<br />" +
+    //         details.website +
+    //         "<br />" +
+    //         details.rating +
+    //         "<br />" +
+    //         details.formatted_phone_number
+    //     );
+    //     infowindow.open(map, marker);
+    //   });
+  });
+
+  //why does this change when switch between how i structure listeners
+  //   console.log(results, "restaurant data results");
+
+  //connect event listener to a function that displays results data
+  //getting error at this point.
+  //   marker.addListener("click", function(results,i) {
+  //     var infowindow = new google.maps.InfoWindow({
+  //         content: contentString
+  //       });
+
+  //       //retruns undefined
+  //       console.log(results[i], "listener results at i")
+  //       console.log(results, "results in event listener")
+
+  //       var contentString = `<p> ${results[i].name}</p>`;
+  //       infowindow.setContent(contentString);
+
+  //       console.log(results)
+  //       console.log(results[i].name);
+
+  //       infowindow.open(map, marker);
+  //   });
+
+  //this is another type of event listener that displays the function, and has no problem with the results being passed through
+  //   marker.addListener("click", displayData(results, i));
+}
 
 function displayData(results, i) {
   var infowindow = new google.maps.InfoWindow({
-    content: contentString
+    content: contentString,
   });
 
   //why am i getting "null" here?
@@ -137,13 +173,39 @@ function displayData(results, i) {
   infowindow.open(map, marker);
 
   console.log(results[i].name);
-};
-
-function listData(results, i) {
-  var dataListEl = document.getElementById("data-list");
-  dataListEl.innerHTML = `<h6>Restaurant: ${results[0].name}</h6>
-  <p>Address: ${results[0].vicinity}<p>
-  `
-
 }
 
+var loadPreviousLocation = function () {
+  //if any saved location, get from localStorage
+  var faveLocation = localStorage.getItem("faveLocation");
+  if (!faveLocation) {
+    // if no saved location,  reset to an empty array
+    faveLocation = [];
+  } else {
+    faveLocation = JSON.parse(faveLocation);
+  }
+  return faveLocation;
+};
+function listData(data) {
+  var dataListEl = document.getElementById("data-list");
+  dataListEl.innerHTML = `<div class="row card-row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-image">
+        <h6 class="bg-light">${data.name}</h6>
+        <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <p>Address: ${data.address}</p>
+        <p>Phone Number: ${data.phoneNumber}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+  document.getElementById("save-btn").addEventListener("click", function () {
+    var food = loadPreviousLocation();
+    food.push(data);
+    localStorage.setItem("faveLocation", JSON.stringify(food));
+  });
+}

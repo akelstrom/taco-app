@@ -54,5 +54,5 @@ var saveRecipe = function() {
 
 }
 
-saveRecipeButton.addEventListener('click', saveRecipe);
-getRecipeButton.addEventListener('click', randomRecipe);
+getRecipeButton.addEventListener("click", randomRecipe);
+saveRecipeButton.addEventListener("click", saveRecipe);

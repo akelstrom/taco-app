@@ -1,49 +1,54 @@
 header {
-    display: flex;
-
+  display: flex;
 }
 .logo {
-    font-family: 'Shrikhand', cursive;
-    color: white;
-    font-size: 50px;
+  font-family: "Shrikhand", cursive;
+  color: white;
+  font-size: 50px;
+}
+.logo-small {
+    font-family: "Shrikhand", cursive;
+    color: #ef5350;
+    font-size: 24px;
 }
 
-h5, h4 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    color: #ef5350;
+h5,
+h4 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
 }
+
 h6 {
-    color: #ef5350;
+  color: #ef5350;
 }
 
 footer {
-    text-align: center;
-    color: #ef5350;
-    font-size: 12px;
-    position: sticky
+  text-align: center;
+  color: #ef5350;
+  font-size: 12px;
+  position: sticky;
 }
 
 .footer {
-    flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-    padding: 20px;
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+  position: absolute;
 }
 
-p {
-    color: #ef5350;
-    font-size: 12px;
-}
+
 
 /* index. html start*/
 
-.make-or-order, button {
-   text-align: center;
-   padding-top:  30 px 
+.make-or-order,
+button {
+  text-align: center;
+  padding-top: 30 px;
 }
 
 .tagline {
-    padding: 20px 5px 10px 5px;
-    text-align: center;
+  padding: 20px 5px 10px 5px;
+  text-align: center;
 }
 
 /* .taco-img {
@@ -51,35 +56,70 @@ p {
 } */
 
 .rather {
-    padding: 50px 0 20px 0;
+  padding: 50px 0 20px 0;
 }
 
 .hero-text {
-    padding: 0 10px 10px 30px ;
+  padding: 0 10px 10px 30px;
 }
 
 .parent {
-   text-align: center;
+  text-align: center;
 }
 /* index.html end */
-
 
 /* order.html styling*/
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
-       #map {
-        height: 50vh;
-        margin-bottom: 10px;
-        display: none;
-      }
-    
-      /* Makes the sample page fill the window.  */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+#map {
+  height: 50vh;
+  margin-bottom: 10px;
+  display: none;
+}
 
-    
-    /* end order.html styling */
+/* Makes the sample page fill the window.  */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.card-row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.bg-light {
+  background: light grey;
+  opacity: 80%;
+}
+/* end order.html styling */
+
+/* directly relating to styling the recpies on make.html */
+h1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    color: #ef5350;
+    font-size: 32px;
+}
+
+h2 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    color: #ef5350;
+    font-size: 24px;
+}
+
+p, li {
+    color: #ef5350;
+    font-size: 12px;
+}
+  
+a {
+      text-decoration: none;
+}
+/* end styling for make.htnml */
