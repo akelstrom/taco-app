@@ -7,6 +7,7 @@ mapArea = document.getElementById("map");
 
 let map;
 let marker;
+let service;
 
 //event listener for user location button
 actionBtn.addEventListener("click", getLocation);
@@ -61,7 +62,7 @@ function initMap(latlng) {
 
   var request = {
     location: latlng,
-    radius: "1000",
+    radius: "5000",
     type: ["restaurant"],
     keyword: "mexican",
   };
