@@ -7,13 +7,14 @@ header {
   font-size: 50px;
 }
 .logo-small {
-    font-family: "Shrikhand", cursive;
-    color: #ef5350;
-    font-size: 24px;
+  font-family: "Shrikhand", cursive;
+  color: #ef5350;
+  font-size: 24px;
 }
 
 h5,
-h4 {
+h4,
+h6 {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
   color: #ef5350;
@@ -35,7 +36,6 @@ footer {
   padding: 20px;
   position: absolute;
 }
-
 
 /* index. html start*/
 
@@ -109,26 +109,27 @@ button {
 
 /* directly relating to styling the recpies on make.html */
 h1 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-style: italic;
-    color: #ef5350;
-    font-size: 32px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+  font-size: 32px;
 }
 
 h2 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-style: italic;
-    color: #ef5350;
-    font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+  font-size: 24px;
 }
 
-p, li {
-    color: #ef5350;
-    font-size: 12px;
+p,
+li {
+  color: #ef5350;
+  font-size: 12px;
 }
-  
+
 a {
-      text-decoration: none;
+  text-decoration: none;
 }
 /* end styling for make.htnml */
 
