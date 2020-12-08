@@ -1,10 +1,19 @@
-var restaurant = localStorage.getItem("favelocation");
 var faveSpot = document.getElementById("getFaveSpot");
-faveSpot.innerHTML = `<header> Hello </header>`;
 
-var foodPlaces = localStorage.getItem("faveLocation");
-console.log("foodPlaces: ", JSON.parse(foodPlaces));
+var foodPlaces = JSON.parse(localStorage.getItem("faveLocation"));
 
-// document.getElementById("getFaveSpot").addEventListener("click", function() {
-
-// });
+function formatPlace(data) {
+  return `<h5>${data.name}</h5><p>${data.address}</p>`;
+}
+var loadFoodPlaces = function () {
+  let i = 0;
+  while (i < foodPlaces.length) {
+    var restaurantList = document.createElement("li");
+    restaurantList.innerHTML = formatPlace(foodPlaces[i]);
+    faveSpot.appendChild(restaurantList);
+    restaurantList.classList.add("collection-item");
+    i++;
+  }
+};
+console.log(foodPlaces);
+loadFoodPlaces();
