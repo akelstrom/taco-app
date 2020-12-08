@@ -131,6 +131,11 @@ li {
 a {
   text-decoration: none;
 }
+
+.info {
+  padding-bottom: 20px;
+  border-bottom: solid 1px #ef5350;
+}
 /* end styling for make.htnml */
 
 
