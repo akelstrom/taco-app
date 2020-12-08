@@ -50,35 +50,40 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
     </div>
   </div>
+  <!-- end modal -->
             
 <div class="container">
-    <section class="order">
+    <div class="order">
       <div class="order-taco">
         <h4>Order Taco</h4>
       </div>
 
-      <div class="row">
-        
+      <div class="row flex">
+        <section class="col s6 m6 flexing">
                  <!-- button to get geolocation current location -->
             <p class="btn-instructions ">Click below to find a taco joint nearby!</p>
             <button class="waves-effect waves-light btn-small red lighten-1" id="my-location"><span class="btn-text">Use My Location <i class="large material-icons">gps_fixed</span></i></button>
-      </div>
-    </section>
-
-    <section class="locations">
-      <!-- map container -->
-      <div class="spots-near-you" id="map"></div>
-        <h5>Locations Near You</h5>
+            <div class="spots-near-you" id="map">
+              <!-- map goes here -->
+            </div>
+        </section>
+     
+        <section class="locations col s6 m6 flexing"> 
+          <h5>Locations Near You</h5>
           <div id="data-list"> 
           <!-- this is where the card pops up -->
           </div>
-    </section>
+        </section>
+      </div>
+    
 
+   
+    </div>
     <footer class="footer">
       Made With &hearts; By Alexandra, Veronica, Kesiah, and Carter
     </footer>
 
-</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script

@@ -74,7 +74,7 @@ function displayLocation(position) {
 //function that handles what the map does
 function initMap(latlng) {
   var options = {
-    zoom: 14,
+    zoom: 13,
     center: latlng,
   };
 
@@ -128,16 +128,9 @@ function createMarkers(place, status) {
       var infowindow = new google.maps.InfoWindow();
 
       console.log("hello");
-      infowindow.setContent(
-        this.data.name +
-          "<br />" +
-          this.data.address +
-          "<br />" +
-          this.data.website +
-          "<br />" +
-          this.data.rating +
-          "<br />" +
-          this.data.phoneNumber
+      infowindow.setContent(`<b>${this.data.name}</b>
+      <br />
+      ${this.data.address}`
       );
       infowindow.open(map, this);
     });
@@ -166,14 +159,15 @@ function listData(data) {
     <div class="card">
       <div class="card-image">
       <img src="${data.photo}">
-        <h6 class="bg-light">${data.name}</h6>
+        <h6 class="card-title red lighten-1">${data.name}</h6>
         <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
       </div>
       <div class="card-content">
         <p>Address: ${data.address}</p>
-        <p>Phone Number: ${data.phoneNumber}</p>
-        <p>Website: <a href="${data.website}">Website Link</a></p>
+        <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny">call</i>
+        </a> ${data.phoneNumber}</p>
         <p>Rating: ${data.rating}</p>
+        <p><a href="${data.website}">Link to Website</a></p>
       </div>
     </div>
   </div>
