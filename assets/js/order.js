@@ -132,7 +132,6 @@ function callback(results, status) {
 function createMarkers(place, status) {
   var request = { reference: place.reference };
   service.getDetails(request, function (details, status) {
-    console.log(details);
     var placeLoc = place.geometry.location;
 
     let markerOptions = {
@@ -155,7 +154,6 @@ function createMarkers(place, status) {
     //event listener that displays the card on the bottom of page
     marker.addListener("click", function () {
       listData(this.data);
-      console.log(this);
       var infowindow = new google.maps.InfoWindow();
 
       console.log("hello");
@@ -164,9 +162,6 @@ function createMarkers(place, status) {
       ${this.data.address}`);
       infowindow.open(map, this);
     });
-
-    console.log(marker);
-    console.log(details, "deets");
     marker.setMap(map);
   });
 }
@@ -182,6 +177,8 @@ var loadPreviousLocation = function () {
   }
   return faveLocation;
 };
+
+//function that shows the location data on a card
 function listData(data) {
   var dataListEl = document.getElementById("data-list");
   dataListEl.innerHTML = `<div class="row card-row">
@@ -203,9 +200,11 @@ function listData(data) {
   </div>
 </div>
   `;
+  
   document.getElementById("save-btn").addEventListener("click", function () {
     var food = loadPreviousLocation();
     food.push(data);
     localStorage.setItem("faveLocation", JSON.stringify(food));
+    M.toast({html: 'This location has been saved!', classes: 'rounded red lighten-1'})
   });
 }
