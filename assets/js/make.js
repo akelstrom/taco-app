@@ -1,6 +1,11 @@
 var recipeContainer = document.getElementById("recipe-container");
+var baseContainer = document.getElementById("base-container")
+var mixinContainer = document.getElementById("mixin-container");
+var shellContainer = document.getElementById("shell-container");
+var condimentContainer = document.getElementById("condiments-container");
 var getRecipeButton = document.getElementById("get-recipe-button");
 var saveRecipeButton = document.getElementById("save-recipe-button");
+
 //load saved recipes from local storage
 var savedRecipes = JSON.parse(localStorage.getItem('recipes'))
 
@@ -26,18 +31,41 @@ var randomRecipe = function() {
       //parse recipe to json/html
       var md = window.markdownit();
       var result = md.render(response.recipe);
-
-    //   if (response.mixin) {
-    //     var mixin = md.render(response.mixin);
-    //     recipeContainer.innerHTML = `<p>${mixin}</p>`
-    //   }
-    //   else {
-    //       console.log("no mixin")
-    //   }
-    //   console.log(result);
-
       //add to page
       recipeContainer.innerHTML = `<p>${result}</p>`;
+
+      //add additional recipe details if provided
+      if (response.base_layer) {
+        console.log("yes base");
+        console.log(response.base_layer.recipe);
+        var md = window.markdownit();
+        var base_layer = md.render(response.base_layer.recipe);
+        baseContainer.innerHTML = `<p>${base_layer}</p>`;
+      }
+      else if(!response.base_layer) {
+        console.log("no base");
+      }
+
+      if(response.mixin) {
+          console.log("yes mixin");
+          var md = window.markdownit();
+          var mixin = md.render(response.mixin.recipe);
+          mixinContainer.innerHTML = `<p>${mixin}</p>`
+      }
+      
+      if (response.shell) {
+          console.log("yes shell");
+          var md = window.markdownit();
+          var shell = md.render(response.shell.recipe);
+          shellContainer.innerHTML = `<p>${shell}</p>`
+      }
+
+      if (response.condiment) {
+          console.log("yes condiments");
+          console.log(response.condiment);
+          var condiment = md.render(response.condiment.recipe);
+          condimentContainer.innerHTML = `<p>${condiment}</p>`
+      } 
     });
 };
 
