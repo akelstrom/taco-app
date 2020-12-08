@@ -3,16 +3,14 @@ var faveSpot = document.getElementById("getFaveSpot");
 var foodPlaces = JSON.parse(localStorage.getItem("faveLocation"));
 
 function formatPlace(data) {
-  return `<h5>${data.name}</h5><p>${data.address}</p>`;
+  return `<h6>${data.name}</h6><p>${data.address} </br> ${data.phoneNumber} </br> ${data.website}</p>`;
 }
 var loadFoodPlaces = function () {
-  let i = 0;
-  while (i < foodPlaces.length) {
+  for (let i = 0; i < foodPlaces.length; i++) {
     var restaurantList = document.createElement("li");
     restaurantList.innerHTML = formatPlace(foodPlaces[i]);
     faveSpot.appendChild(restaurantList);
-    restaurantList.classList.add("collection-item");
-    i++;
+    restaurantList.classList.add("restaurant-list");
   }
 };
 console.log(foodPlaces);
