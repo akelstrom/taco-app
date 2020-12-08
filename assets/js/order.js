@@ -5,6 +5,22 @@ var actionBtn = document.getElementById("my-location");
 
 mapArea = document.getElementById("map");
 
+var options = {
+  opacity: 0.2,
+  inDuration: 200,
+  startingTop: "100%",
+};
+var elems = document.querySelectorAll(".modal");
+var instances = M.Modal.init(elems, options);
+var instance = M.Modal.getInstance(document.getElementById("modal1"));
+document
+  .getElementById("modal1")
+  .querySelector(".modal-footer")
+  .querySelector("a")
+  .addEventListener("click", function () {
+    instance.close();
+  });
+
 let map;
 let marker;
 let service;
@@ -23,10 +39,15 @@ function getLocation() {
 
 // Displays the different error messages- change alerts to modals
 showError = (error) => {
+  console.log(instance, "apples");
   mapArea.style.display = "block";
   switch (error.code) {
     case error.PERMISSION_DENIED:
-      alert("You denied the request for your location.");
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("h4").textContent = "Anything for now";
+      instance.open();
       break;
     case error.POSITION_UNAVAILABLE:
       alert("Your Location information is unavailable.");
@@ -54,7 +75,7 @@ function displayLocation(position) {
 //function that handles what the map does
 function initMap(latlng) {
   var options = {
-    zoom: 14,
+    zoom: 13,
     center: latlng,
   };
 
@@ -91,88 +112,34 @@ function createMarkers(place, status) {
       // animation: google.maps.Animation.BOUNCE,
       icon: "https://img.icons8.com/color/48/000000/taco.png",
       data: {
-        
-            name = details.name,
-            address = details.formatted_address,
-            website = details.website,
-            rating = details.rating,
-            phoneNumber = details.formatted_phone_number,
-            photo = details.photos[0].getUrl()
-
-      }
+        name: details.name,
+        address: details.formatted_address,
+        website: details.website,
+        rating: details.rating,
+        phoneNumber: details.formatted_phone_number,
+        photo: details.photos[0].getUrl(),
+      },
     };
 
     marker = new google.maps.Marker(markerOptions);
+    //event listener that displays the card on the bottom of page
     marker.addListener("click", function () {
-      listData(marker.data);
+      listData(this.data);
       console.log(this);
+      var infowindow = new google.maps.InfoWindow();
+
+      console.log("hello");
+      infowindow.setContent(`<b>${this.data.name}</b>
+      <br />
+      ${this.data.address}`
+      );
+      infowindow.open(map, this);
     });
+
     console.log(marker);
     console.log(details, "deets");
     marker.setMap(map);
-    //   google.maps.event.addListener(marker, "click", function () {
-    //     console.log("hello");
-    //     infowindow.setContent(
-    //       details.name +
-    //         "<br />" +
-    //         details.formatted_address +
-    //         "<br />" +
-    //         details.website +
-    //         "<br />" +
-    //         details.rating +
-    //         "<br />" +
-    //         details.formatted_phone_number
-    //     );
-    //     infowindow.open(map, marker);
-    //   });
   });
-
-  //why does this change when switch between how i structure listeners
-  //   console.log(results, "restaurant data results");
-
-  //connect event listener to a function that displays results data
-  //getting error at this point.
-  //   marker.addListener("click", function(results,i) {
-  //     var infowindow = new google.maps.InfoWindow({
-  //         content: contentString
-  //       });
-
-  //       //retruns undefined
-  //       console.log(results[i], "listener results at i")
-  //       console.log(results, "results in event listener")
-
-  //       var contentString = `<p> ${results[i].name}</p>`;
-  //       infowindow.setContent(contentString);
-
-  //       console.log(results)
-  //       console.log(results[i].name);
-
-  //       infowindow.open(map, marker);
-  //   });
-
-  //this is another type of event listener that displays the function, and has no problem with the results being passed through
-  //   marker.addListener("click", displayData(results, i));
-}
-
-function displayData(results, i) {
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString,
-  });
-
-  //why am i getting "null" here?
-  console.log(
-    results[i].geometry.location,
-    "console logging position of markers"
-  );
-
-  //define the content that is displayed in infowindow
-  var contentString = `<p> ${results[i].name}</p>`;
-  //sets the content in the infowindow
-  infowindow.setContent(contentString);
-  //opens the info window (supposed to happen on the click!!!!)
-  infowindow.open(map, marker);
-
-  console.log(results[i].name);
 }
 
 var loadPreviousLocation = function () {
@@ -192,12 +159,16 @@ function listData(data) {
   <div class="col s12 m6">
     <div class="card">
       <div class="card-image">
-        <h6 class="bg-light">${data.name}</h6>
+      <img src="${data.photo}">
+        <h6 class="card-title red lighten-1">${data.name}</h6>
         <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
       </div>
       <div class="card-content">
         <p>Address: ${data.address}</p>
-        <p>Phone Number: ${data.phoneNumber}</p>
+        <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny">call</i>
+        </a> ${data.phoneNumber}</p>
+        <p>Rating: ${data.rating}</p>
+        <p><a href="${data.website}">Link to Website</a></p>
       </div>
     </div>
   </div>
