@@ -37,7 +37,6 @@ footer {
 }
 
 
-
 /* index. html start*/
 
 .make-or-order,
@@ -50,10 +49,6 @@ button {
   padding: 20px 5px 10px 5px;
   text-align: center;
 }
-
-/* .taco-img {
-    padding-left: 210px;
-} */
 
 .rather {
   padding: 50px 0 20px 0;
@@ -90,7 +85,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 .bg-light {
