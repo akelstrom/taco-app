@@ -17,7 +17,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="./assets/js/js.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
@@ -48,19 +47,18 @@
       </nav>
     </header>
 
-    <div class="container">
+ <div class="container">
     <section class="order">
       <div class="order-taco">
         <h2>Your Saved Recipes</h2>
       </div>
-
-      <div class="taco-img">
-        <img src="https://img.icons8.com/dotty/80/000000/taco.png" />
-      </div>
     </section>
 
     <!-- scroll box container -->
-    <div class="saved-recipes"></div>
+    <div class="container">
+      <ul class="collection" id="saved-recipes"></ul>
+    </div>
+
 
     <div class="footer">
         <footer>
@@ -68,7 +66,11 @@
         </footer>
     </div>
     
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.2/markdown-it.min.js"></script>
+    <script src="assets/js/my-recipes.js"></script>
     <script> M.AutoInit(); </script>
   </body>
 </html>

@@ -7,13 +7,14 @@ header {
   font-size: 50px;
 }
 .logo-small {
-    font-family: "Shrikhand", cursive;
-    color: #ef5350;
-    font-size: 24px;
+  font-family: "Shrikhand", cursive;
+  color: #ef5350;
+  font-size: 24px;
 }
 
 h5,
-h4 {
+h4,
+h6 {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
   color: #ef5350;
@@ -39,7 +40,6 @@ footer {
   height: -60px;
   position: absolute;
 }
-
 
 /* index. html start*/
 
@@ -85,53 +85,152 @@ button {
        * element that contains the map. */
 
 #map {
-  height: 50vh;
+  height: 60vh;
+  width: 60vh;
   margin-bottom: 10px;
   display: none;
 }
 
-/* Makes the sample page fill the window.  */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 .card-row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
 
-.bg-light {
-  background: light grey;
+.card {
+  width: 50vh;
+  max-height: 60vh;
+  margin-left: 3rem;
+}
+
+.locations {
+  text-align: center;
+  justify-content: center;
+}
+
+.card-content {
+  text-align: left;
+  padding-left: 2px;
+}
+
+.card-title {
   opacity: 80%;
+}
+
+#my-location {
+  margin-bottom: 5px;
 }
 /* end order.html styling */
 
 /* directly relating to styling the recpies on make.html */
 h1 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-style: italic;
-    color: #ef5350;
-    font-size: 32px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+  font-size: 24px;
 }
 
 h2 {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-style: italic;
-    color: #ef5350;
-    font-size: 24px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+  font-size: 18px;
 }
 
-p, li {
-    color: #ef5350;
-    font-size: 12px;
+p,
+li {
+  color: #ef5350;
+  font-size: 12px;
 }
-  
+
 a {
-      text-decoration: none;
+  text-decoration: none;
+}
+
+.info {
+  padding-bottom: 20px;
+  border-bottom: solid 1px #ef5350;
 }
 /* end styling for make.htnml */
+
+
+
+/* media query for order.html--and header for all pages */
+
+@media only screen and (max-width: 1000px) {
+ .logo {
+   font-size: 30px;
+ }
+  .flex{
+  display: flex;
+  flex-direction: column;
+}
+.row .col.s6 {
+  width: 100%;
+}
+
+
+.locations {
+  text-align: left;
+}
+
+#map {
+  width: 40vh;
+  height: 40vh;
+}
+
+.card {
+  width: 40vh;
+  height: 100%;
+  margin-left: auto;
+}
+
+.btn-instructions {
+  margin-top: 0px;
+}
+
+.row .col.s12 {
+    margin-left: auto;
+    /* left: auto;
+    right: auto; */
+}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+  .logo {
+    font-size: 30px;
+  }
+ 
+ .locations {
+   text-align: left;
+ }
+ 
+ #map {
+   width: 50vh;
+   height: 50vh;
+ }
+ 
+ .row .col.s12 {
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+ .card {
+   width: 40vh;
+   height: 100%;
+   margin-left: 30px;
+ }
+ 
+ .btn-instructions {
+   margin-top: 0px;
+ }
+
+ .row .col.m6 {
+  width: 50%;
+  margin-left: 0px;
+  left: auto;
+  right: auto;
+}
+ }

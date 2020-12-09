@@ -37,14 +37,20 @@
 
     <div class="container">
         <div class="info">
-            <h5>Make yourself a taco today!</h5>
-            <p>All you have to do is click the button below to display a different taco recipe each time you click! You can save the ones you like!</p>
-            <button id="get-recipe-button" class="waves-effect waves-light btn-large red lighten-1">Get a Recipe!</button>
+            <h4>Make yourself a taco today!</h4>
+            <h6>All you have to do is click the button below to display a different taco recipe each time you click! 
+                <br>
+                You can save the ones you like!</h6>
+            <button id="get-recipe-button" class="waves-effect waves-light btn-large red lighten-1">New Recipe!</button>
         </div>
        
-        <div id="recipe-container">
-        </div>  
+        <div id="recipe-container"></div>  
+        <div id="base-container"></div>
+        <div id="mixin-container"></div>
+        <div id="shell-container"></div>
+        <div id="condiments-container"></div>
         <button id="save-recipe-button" class="waves-effect waves-light btn-small red lighten-1">Save this Recipe</button>
+        <button onclick="window.location='./my-recipes.html'" id="view-recipes-button" class="waves-effect waves-light btn-small red lighten-1">View saved Recipes</button>
 
     </div>
 

@@ -6,8 +6,7 @@ mapArea = document.getElementById("map");
 
 var options = {
   opacity: 0.2,
-  inDuration: 200,
-  startingTop: "100%",
+  inDuration: 200
 };
 var elems = document.querySelectorAll(".modal");
 var instances = M.Modal.init(elems, options);
@@ -36,7 +35,7 @@ function getLocation() {
   }
 }
 
-// Displays the different error messages- change alerts to modals
+// Displays the different error messages using modals
 showError = (error) => {
   console.log(instance, "apples");
   mapArea.style.display = "block";
@@ -45,17 +44,49 @@ showError = (error) => {
       document
         .getElementById("modal1")
         .querySelector(".modal-content")
-        .querySelector("h4").textContent = "Anything for now";
+        .querySelector("h4").textContent = "Error- Permission Denied";
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("p").textContent =
+        "You denied the browser's request for your location, try again to get tacos";
       instance.open();
       break;
     case error.POSITION_UNAVAILABLE:
-      alert("Your Location information is unavailable.");
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("h4").textContent = "Error- Position Unavaliable";
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("p").textContent =
+        "Your Location information is unavailable. Try again to get tacos";
+      instance.open();
       break;
     case error.TIMEOUT:
-      alert("Your request timed out. Please try again");
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("h4").textContent = "Error- Timeout";
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("p").textContent =
+        "Your request timed out. Please try again to get tacos";
+      instance.open();
       break;
     case error.UNKNOWN_ERROR:
-      alert("An unknown error occurred please try again after some time.");
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("h4").textContent = "Unknown Error";
+      document
+        .getElementById("modal1")
+        .querySelector(".modal-content")
+        .querySelector("p").textContent =
+        "An unknown error occurred please try again soon to get tacos.";
+      instance.open();
       break;
   }
 };
@@ -74,7 +105,7 @@ function displayLocation(position) {
 //function that handles what the map does
 function initMap(latlng) {
   var options = {
-    zoom: 14,
+    zoom: 13,
     center: latlng,
   };
 
@@ -101,7 +132,6 @@ function callback(results, status) {
 function createMarkers(place, status) {
   var request = { reference: place.reference };
   service.getDetails(request, function (details, status) {
-    console.log(details);
     var placeLoc = place.geometry.location;
 
     let markerOptions = {
@@ -124,26 +154,14 @@ function createMarkers(place, status) {
     //event listener that displays the card on the bottom of page
     marker.addListener("click", function () {
       listData(this.data);
-      console.log(this);
       var infowindow = new google.maps.InfoWindow();
 
       console.log("hello");
-      infowindow.setContent(
-        this.data.name +
-          "<br />" +
-          this.data.address +
-          "<br />" +
-          this.data.website +
-          "<br />" +
-          this.data.rating +
-          "<br />" +
-          this.data.phoneNumber
-      );
+      infowindow.setContent(`<b>${this.data.name}</b>
+      <br />
+      ${this.data.address}`);
       infowindow.open(map, this);
     });
-
-    console.log(marker);
-    console.log(details, "deets");
     marker.setMap(map);
   });
 }
@@ -159,6 +177,8 @@ var loadPreviousLocation = function () {
   }
   return faveLocation;
 };
+
+//function that shows the location data on a card
 function listData(data) {
   var dataListEl = document.getElementById("data-list");
   dataListEl.innerHTML = `<div class="row card-row">
@@ -166,22 +186,25 @@ function listData(data) {
     <div class="card">
       <div class="card-image">
       <img src="${data.photo}">
-        <h6 class="bg-light">${data.name}</h6>
+        <h6 class="card-title red lighten-1">${data.name}</h6>
         <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
       </div>
       <div class="card-content">
         <p>Address: ${data.address}</p>
-        <p>Phone Number: ${data.phoneNumber}</p>
-        <p>Website: <a href="${data.website}">Website Link</a></p>
+        <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny">call</i>
+        </a> ${data.phoneNumber}</p>
         <p>Rating: ${data.rating}</p>
+        <p><a href="${data.website}">Link to Website</a></p>
       </div>
     </div>
   </div>
 </div>
   `;
+  
   document.getElementById("save-btn").addEventListener("click", function () {
     var food = loadPreviousLocation();
     food.push(data);
     localStorage.setItem("faveLocation", JSON.stringify(food));
+    M.toast({html: 'This location has been saved!', classes: 'rounded red lighten-1'})
   });
 }

@@ -1,32 +1,34 @@
-var loadPreviousLocation = function () {
-  //if any saved location, get from localStorage
-  var faveLocation = localStorage.getItem("faveLocation");
-  if (!faveLocation) {
-    // if no saved location,  reset to an empty array
-    faveLocation = [];
-  } else {
-    faveLocation = JSON.parse(faveLocation);
+var faveSpot = document.getElementById("getFaveSpot");
+
+var foodPlaces = JSON.parse(localStorage.getItem("faveLocation"));
+
+function formatPlace(data) {
+  return `<div class="row card-row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-image">
+      <img src="${data.photo}">
+        <h6 class="card-title red lighten-1">${data.name}</h6>
+        <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
+      </div>
+      <div class="card-content">
+        <p>Address: ${data.address}</p>
+        <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny">call</i>
+        </a> ${data.phoneNumber}</p>
+        <p>Rating: ${data.rating}</p>
+        <p><a href="${data.website}">Link to Website</a></p>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+var loadFoodPlaces = function () {
+  for (let i = 0; i < foodPlaces.length; i++) {
+    var restaurantList = document.createElement("li");
+    restaurantList.innerHTML = formatPlace(foodPlaces[i]);
+    faveSpot.appendChild(restaurantList);
+    restaurantList.classList.add("restaurant-list");
   }
-  return faveLocation;
 };
-
-var saveLocation = function () {
-  var faveLocation = loadPreviousLocation();
-
-  // get the user's restaurant and package it into an object with their location
-  var restaurant = document.getElementById("location-address").value;
-
-  // var location = {
-  //   restaurant: restaurant,
-  // };
-
-  // faveLocation.push(restaurant);
-};
-navigator.geolocation.getCurrentPosition(function (p) {
-  localStorage.setItem("latitude", p.coords.latitude);
-  localStorage.setItem("longitude", p.coords.longitude);
-  localStorage.setItem("location");
-});
-
-var lat = localStorage.latitude;
-var lon = localStorage.longitude;
+console.log(foodPlaces);
+loadFoodPlaces();
