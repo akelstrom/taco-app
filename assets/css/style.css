@@ -24,20 +24,31 @@ h6 {
   color: #ef5350;
 }
 
+body {
+  position: relative;
+}
 footer {
-  text-align: center;
-  color: #ef5350;
-  font-size: 12px;
-  position: sticky;
+  position: relative;
 }
 
 .footer {
+  text-align: center;
+  color: #ef5350;
+  width: 100%;
+  font-size: 12px;
   flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-  padding: 20px;
+  height: -60px;
   position: absolute;
 }
 
 /* index. html start*/
+
+.row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .make-or-order,
 button {
@@ -60,6 +71,12 @@ button {
 
 .parent {
   text-align: center;
+}
+
+@media (max-width: 650px) {
+  .hero, .make-or-order { 
+   flex: 1 0 100%;     
+ }
 }
 /* index.html end */
 
