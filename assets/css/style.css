@@ -20,22 +20,30 @@ h6 {
   color: #ef5350;
 }
 
-body {
+#page-container {
   position: relative;
-}
-footer {
-  position: relative;
+  min-height: 100vh;
 }
 
-.footer {
+#content {
+  padding-bottom: 2.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 5px;
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 2.5rem;
   text-align: center;
   color: #ef5350;
   width: 100%;
   font-size: 12px;
-  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
-  height: -60px;
-  position: absolute;
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shri */
 }
+
+
 
 /* index. html start*/
 
@@ -76,6 +84,18 @@ button {
   }
 }
 /* index.html end */
+
+/*my-recipes and fav-spots scrollbox styling */
+.scrollbox {
+  overflow-y: scroll;
+  height: 450px;
+}
+
+.fav {
+  width: 350px;
+}
+
+
 
 /* order.html styling*/
 /* Always set the map height explicitly to define the size of the div
@@ -190,6 +210,7 @@ a {
     right: auto; */
   }
 }
+
 
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
   .logo {
