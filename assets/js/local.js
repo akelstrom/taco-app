@@ -3,8 +3,7 @@ var faveSpot = document.getElementById("getFaveSpot");
 var foodPlaces = JSON.parse(localStorage.getItem("faveLocation"));
 
 function formatPlace(data) {
-  return `<div class="row card-row">
-  <div class="col s12 m6">
+  return `<div class="col s12 m6">
     <div class="card">
       <div class="card-image">
       <img src="${data.photo}">
