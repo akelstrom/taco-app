@@ -17,8 +17,7 @@ function formatPlace(data) {
         <p><a href="${data.website}">Link to Website</a></p>
       </div>
     </div>
-  </div>
-</div>`;
+  </div>`;
 }
 var loadFoodPlaces = function () {
   for (let i = 0; i < foodPlaces.length; i++) {
