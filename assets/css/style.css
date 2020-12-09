@@ -20,10 +20,6 @@ h6 {
   color: #ef5350;
 }
 
-h6 {
-  color: #ef5350;
-}
-
 body {
   position: relative;
 }
@@ -53,7 +49,7 @@ footer {
 .make-or-order,
 button {
   text-align: center;
-  padding-top: 30 px;
+  padding-top: 30px;
 }
 
 .tagline {
@@ -74,9 +70,10 @@ button {
 }
 
 @media (max-width: 650px) {
-  .hero, .make-or-order { 
-   flex: 1 0 100%;     
- }
+  .hero,
+  .make-or-order {
+    flex: 1 0 100%;
+  }
 }
 /* index.html end */
 
@@ -90,7 +87,6 @@ button {
   margin-bottom: 10px;
   display: none;
 }
-
 
 .card-row {
   margin-left: auto;
@@ -155,82 +151,79 @@ a {
 }
 /* end styling for make.htnml */
 
-
-
 /* media query for order.html--and header for all pages */
 
 @media only screen and (max-width: 1000px) {
- .logo {
-   font-size: 30px;
- }
-  .flex{
-  display: flex;
-  flex-direction: column;
-}
-.row .col.s6 {
-  width: 100%;
-}
+  .logo {
+    font-size: 30px;
+  }
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+  .row .col.s6 {
+    width: 100%;
+  }
 
+  .locations {
+    text-align: left;
+  }
 
-.locations {
-  text-align: left;
-}
+  #map {
+    width: 40vh;
+    height: 40vh;
+  }
 
-#map {
-  width: 40vh;
-  height: 40vh;
-}
+  .card {
+    width: 40vh;
+    height: 100%;
+    margin-left: auto;
+  }
 
-.card {
-  width: 40vh;
-  height: 100%;
-  margin-left: auto;
-}
+  .btn-instructions {
+    margin-top: 0px;
+  }
 
-.btn-instructions {
-  margin-top: 0px;
-}
-
-.row .col.s12 {
+  .row .col.s12 {
     margin-left: auto;
     /* left: auto;
     right: auto; */
-}
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
   .logo {
     font-size: 30px;
   }
- 
- .locations {
-   text-align: left;
- }
- 
- #map {
-   width: 50vh;
-   height: 50vh;
- }
- 
- .row .col.s12 {
-  margin-left: auto;
-  left: auto;
-  right: auto;
-}
- .card {
-   width: 40vh;
-   height: 100%;
-   margin-left: 30px;
- }
- 
- .btn-instructions {
-   margin-top: 0px;
- }
 
- .row .col.m6 {
-  width: 50%;
-  margin-left: 0px;
-  left: auto;
-  right: auto;
+  .locations {
+    text-align: left;
+  }
+
+  #map {
+    width: 50vh;
+    height: 50vh;
+  }
+
+  .row .col.s12 {
+    margin-left: auto;
+    left: auto;
+    right: auto;
+  }
+  .card {
+    width: 40vh;
+    height: 100%;
+    margin-left: 30px;
+  }
+
+  .btn-instructions {
+    margin-top: 0px;
+  }
+
+  .row .col.m6 {
+    width: 50%;
+    margin-left: 0px;
+    left: auto;
+    right: auto;
+  }
 }
- }
