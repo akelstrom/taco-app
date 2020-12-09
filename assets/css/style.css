@@ -82,13 +82,17 @@ button {
   .make-or-order {
     flex: 1 0 100%;
   }
+
+  .rather {
+    padding: 10px 0 20px 0;
+  }
 }
 /* index.html end */
 
 /*my-recipes and fav-spots scrollbox styling */
 .scrollbox {
   overflow-y: scroll;
-  height: 450px;
+  height: 600px;
   
 }
 
@@ -197,7 +201,7 @@ a {
     height: 40vh;
   }
 
-  .card {
+  .order-card {
     width: 30vh;
     height: 100%;
     margin-left: -110px;
@@ -238,7 +242,7 @@ a {
     height: 40vh;
   }
 
-  .card {
+  .order-card {
     width: 40vh;
     height: 100%;
     margin-left: -110px;
