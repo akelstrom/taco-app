@@ -3,6 +3,7 @@ var baseContainer = document.getElementById("base-container")
 var mixinContainer = document.getElementById("mixin-container");
 var shellContainer = document.getElementById("shell-container");
 var condimentContainer = document.getElementById("condiments-container");
+var nameContainer = document.getElementById("name-container");
 var getRecipeButton = document.getElementById("get-recipe-button");
 var saveRecipeButton = document.getElementById("save-recipe-button");
 
@@ -26,7 +27,7 @@ var randomRecipe = function() {
     .then(function (response) {
       console.log(response);
 
-      var index = response.recipe.split("\n").indexOf("-------------");
+      nameContainer.innerHTML = response.name;
 
       //parse recipe to json/html
       var md = window.markdownit();
@@ -42,22 +43,19 @@ var randomRecipe = function() {
         var base_layer = md.render(response.base_layer.recipe);
         baseContainer.innerHTML = `<p>${base_layer}</p>`;
       }
-      else if(!response.base_layer) {
-        console.log("no base");
-      }
 
       if(response.mixin) {
-          console.log("yes mixin");
+        console.log("yes mixin");
           var md = window.markdownit();
           var mixin = md.render(response.mixin.recipe);
-          mixinContainer.innerHTML = `<p>${mixin}</p>`
+          mixinContainer.innerHTML = `<p>${mixin}</p>`;
       }
       
       if (response.shell) {
           console.log("yes shell");
           var md = window.markdownit();
           var shell = md.render(response.shell.recipe);
-          shellContainer.innerHTML = `<p>${shell}</p>`
+          shellContainer.innerHTML = `<p>${shell}</p>`;
       }
 
       if (response.condiment) {
@@ -74,7 +72,22 @@ randomRecipe();
 
 //save a recipe to local storage
 var saveRecipe = function() {
-    savedRecipes.push(recipeContainer.innerHTML);
+    var lastRecipeName = nameContainer.innerHTML;
+    var lastRecipe = recipeContainer.innerHTML;
+    var lastBase = baseContainer.innerHTML;
+    var lastMixin = mixinContainer.innerHTML;
+    var lastShell = shellContainer.innerHTML;
+    var lastCondiment = condimentContainer.innerHTML;
+    var recipeObject = {
+        name: lastRecipeName,
+        recipe: lastRecipe,
+        base_layer: lastBase,
+        mixin: lastMixin,
+        shell: lastShell,
+        condiment: lastCondiment
+    }
+    
+    savedRecipes.push(recipeObject);
     localStorage.setItem('recipes', JSON.stringify(savedRecipes));
 }
 
