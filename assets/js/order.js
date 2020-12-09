@@ -182,8 +182,9 @@ var loadPreviousLocation = function () {
 function listData(data) {
   var dataListEl = document.getElementById("data-list");
   dataListEl.innerHTML = `
+  <div class="row card-row">
   <div class="col s12 m6">
-    <div class="card-saved">
+    <div class="card order-card">
       <div class="card-image">
       <img src="${data.photo}">
         <h6 class="card-title red lighten-1">${data.name}</h6>

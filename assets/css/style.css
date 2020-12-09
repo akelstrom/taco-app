@@ -89,6 +89,7 @@ button {
 .scrollbox {
   overflow-y: scroll;
   height: 450px;
+  
 }
 
 .fav {
@@ -108,7 +109,7 @@ button {
   display: none;
 }
 
-.card {
+.order-card {
   width: 50vh;
   height: 60vh;
   margin-left: -120px;

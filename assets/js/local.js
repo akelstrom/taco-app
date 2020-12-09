@@ -18,7 +18,7 @@ function formatPlace(data) {
       </div>
     </div>
   </div>
-</div>`;
+`;
 }
 var loadFoodPlaces = function () {
   for (let i = 0; i < foodPlaces.length; i++) {
