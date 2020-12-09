@@ -25,7 +25,6 @@ var randomRecipe = function() {
         
     })
     .then(function (response) {
-      console.log(response);
 
       nameContainer.innerHTML = response.name;
 
@@ -37,30 +36,24 @@ var randomRecipe = function() {
 
       //add additional recipe details if provided
       if (response.base_layer) {
-        console.log("yes base");
-        console.log(response.base_layer.recipe);
         var md = window.markdownit();
         var base_layer = md.render(response.base_layer.recipe);
         baseContainer.innerHTML = `<p>${base_layer}</p>`;
       }
 
       if(response.mixin) {
-        console.log("yes mixin");
           var md = window.markdownit();
           var mixin = md.render(response.mixin.recipe);
           mixinContainer.innerHTML = `<p>${mixin}</p>`;
       }
       
       if (response.shell) {
-          console.log("yes shell");
           var md = window.markdownit();
           var shell = md.render(response.shell.recipe);
           shellContainer.innerHTML = `<p>${shell}</p>`;
       }
 
       if (response.condiment) {
-          console.log("yes condiments");
-          console.log(response.condiment);
           var condiment = md.render(response.condiment.recipe);
           condimentContainer.innerHTML = `<p>${condiment}</p>`
       } 
@@ -89,6 +82,7 @@ var saveRecipe = function() {
     
     savedRecipes.push(recipeObject);
     localStorage.setItem('recipes', JSON.stringify(savedRecipes));
+    M.toast({html: 'This recipe has been saved!', classes: 'rounded red lighten-1'})
 }
 
 getRecipeButton.addEventListener("click", randomRecipe);
