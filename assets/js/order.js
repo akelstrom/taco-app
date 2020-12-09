@@ -181,9 +181,9 @@ var loadPreviousLocation = function () {
 //function that shows the location data on a card
 function listData(data) {
   var dataListEl = document.getElementById("data-list");
-  dataListEl.innerHTML = `<div class="row card-row">
+  dataListEl.innerHTML = `
   <div class="col s12 m6">
-    <div class="card">
+    <div class="card-saved">
       <div class="card-image">
       <img src="${data.photo}">
         <h6 class="card-title red lighten-1">${data.name}</h6>
