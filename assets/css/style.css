@@ -20,10 +20,6 @@ h6 {
   color: #ef5350;
 }
 
-h6 {
-  color: #ef5350;
-}
-
 footer {
   text-align: center;
   color: #ef5350;
@@ -42,7 +38,7 @@ footer {
 .make-or-order,
 button {
   text-align: center;
-  padding-top: 30 px;
+  padding-top: 30px;
 }
 
 .tagline {

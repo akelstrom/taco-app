@@ -9,7 +9,6 @@ function formatPlace(data) {
       <div class="card-image">
       <img src="${data.photo}">
         <h6 class="card-title red lighten-1">${data.name}</h6>
-        <a class="btn-floating halfway-fab waves-effect waves-light red" id="save-btn"><i class="material-icons">add</i></a>
       </div>
       <div class="card-content">
         <p>Address: ${data.address}</p>
