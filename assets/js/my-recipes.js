@@ -21,5 +21,4 @@ function loadMyRecipes() {
         recipeBody.classList.add("collapsible-body");
     }
 }
-console.log(savedRecipes);
 loadMyRecipes();
