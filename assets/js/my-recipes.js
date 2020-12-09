@@ -1,7 +1,7 @@
 var savedList = document.getElementById("saved-recipes");
 
 //load saved recipes from local storage
-var savedRecipes = JSON.parse(localStorage.getItem("recipes"));
+var savedRecipes = JSON.parse(localStorage.getItem('recipes'))
 
 //load recipes to page
 function loadMyRecipes() {
@@ -21,5 +21,5 @@ function loadMyRecipes() {
         recipeBody.classList.add("collapsible-body");
     }
 }
-console.log(savedRecipes);
+
 loadMyRecipes();
