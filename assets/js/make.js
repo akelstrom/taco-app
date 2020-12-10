@@ -16,10 +16,20 @@ if (!savedRecipes) {
 }
 
 //generate random recipe
+<<<<<<< HEAD
 var randomRecipe = function () {
   fetch("https://taco-randomizer.herokuapp.com/random/?full-taco=true")
     .then(function (response) {
       return response.json();
+=======
+var randomRecipe = function() {
+    fetch(
+        'https://taco-randomizer.herokuapp.com/random/?full-taco=true'
+    )
+    .then(function(response) {
+        return response.json();
+        
+>>>>>>> 0e04c65ac1d2bc329c9c978a43a348ace175832f
     })
     .then(function (response) {
       nameContainer.innerHTML = response.name;
