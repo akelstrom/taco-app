@@ -14,7 +14,7 @@ function formatPlace(data) {
         <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny link">call</i>
         </a> ${data.phoneNumber}</p>
         <p>Rating: ${data.rating}</p>
-        <p><a href="${data.website}" class="link">Link to Website</a></p>
+        <p><a href="${data.website}" class="link" target="_blank">Link to Website</a></p>
       </div>
     </div>
   </div>
