@@ -19,9 +19,9 @@ We LOVE tacos! Tacos are very popular, and there are plenty of taco lovers just 
 
 ## Tech Used
   *   Languages: HTML, CSS, JavaScript
-  *	APIs: 
-        *Taco Fancy: Recipe randomizer;
-        *Google Maps API: Search for nearby taco locations, and displaying returned data onto a card
+  *	  APIs: 
+      * Taco Fancy: Recipe randomizer;
+      * Google Maps API: Search for nearby taco locations, and displaying returned data onto a card
 ## Frameworks/Libraries
    *   Materialize: Styling: Nav-bar, buttons, Layout, Cards, Dropdown Menu, icons, Modals and Toasts 
    *   Google Icons: Used with Materialize
