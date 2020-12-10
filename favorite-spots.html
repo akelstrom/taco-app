@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Favorite Spots</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div id="page-container">
+      <div id="content">
+    <!--header/navigation-->
+    <header>
+      <nav class="red lighten-1">
+          <div class="nav-wrapper">
+            <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+              <ul class="right hide-on-med-and-down">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="order.html">Order a Taco</a></li>
+              <li><a href="make.html">Make a Taco</a></li>
+              <li><a href="my-recipes.html">My Recipes</a></li>
+              
+              </ul>
+          </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+          <a class ="logo-small" href="index.html">Taco Lover &hearts;</a>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="order.html">Order a Taco</a></li>
+          <li><a href="make.html">Make a Taco</a></li>
+          <li><a href="my-recipes.html">My Recipes</a></li>
+        </ul>
+  </header>
+  <div class="container">
+      <section class="saved-locations">
+        <div class="order-taco">
+          <h4>My Favorite Spots</h4>
+        </div>
+    
+      </section>
+    <!-- scroll box container -->
+
+    <div class="container scrollbox fav">
+      <ul class="spots-near-you" id="getFaveSpot"></ul>
+    </div>
+  </div>
+        <div class="footer">
+          <footer>
+            Made With &hearts; By: Alexandra, Veronica, Kesiah, and Carter 
+          </footer>
+        </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script> M.AutoInit(); </script>
+    <script src = "assets/js/local.js"></script>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+header {
+  display: flex;
+}
+.logo {
+  font-family: "Shrikhand", cursive;
+  color: white;
+  font-size: 50px;
+}
+.logo-small {
+  font-family: "Shrikhand", cursive;
+  color: #ef5350;
+  font-size: 24px;
+}
+
+h5,
+h4,
+h6 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content {
+  padding-bottom: 2.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 5px;
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 2.5rem;
+  text-align: center;
+  color: #ef5350;
+  width: 100%;
+  font-size: 12px;
+  flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shri */
+}
+
+
+
+/* index. html start*/
+
+.row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.make-or-order,
+button {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.tagline {
+  padding: 20px 5px 10px 5px;
+  text-align: center;
+}
+
+.rather {
+  padding: 50px 0 20px 0;
+}
+
+.hero-text {
+  padding: 0 10px 10px 30px;
+}
+
+.parent {
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .hero,
+  .make-or-order {
+    flex: 1 0 100%;
+  }
+
+  .rather {
+    padding: 10px 0 20px 0;
+  }
+}
+/* index.html end */
+
+/*my-recipes and fav-spots scrollbox styling */
+.scrollbox {
+  overflow-y: scroll;
+  height: 600px;
+  
+}
+
+.fav {
+  width: 350px;
+}
+
+
+
+/* order.html styling*/
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+#map {
+  height: 60vh;
+  width: 60vh;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.order-card {
+  width: 50vh;
+  height: 60vh;
+  margin-left: -120px;
+  margin-top: 20px;
+}
+
+.card .card-image img {
+  max-width: 400px;
+  max-height: 300px;
+}
+
+.row .card-row {
+  margin-left: 100px;
+}
+
+.row .col.m6 {
+  width: 100%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+}
+
+.locations .col .s5 .m5 .flexing {
+  margin-left: 40px;
+}
+
+.data-list {
+  padding-top: 0px;
+}
+/* end order.html styling */
+
+/* directly relating to styling the recpies on make.html */
+h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+  font-size: 24px;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  color: #ef5350;
+  font-size: 18px;
+}
+
+p,
+li {
+  color: #ef5350;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.info {
+  padding-bottom: 20px;
+  border-bottom: solid 1px #ef5350;
+}
+/* end styling for make.htnml */
+
+/* media query for order.html--and header for all pages */
+@media only screen and (min-width: 650px) and (max-width: 1100px) {
+  .logo {
+    font-size: 30px;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .flexing {
+     flex: 1 0 100%;
+  }
+  .row .col.s6 {
+    width: 100%;
+  }
+
+  .locations {
+    text-align: left;
+  }
+
+  #map {
+    width: 40vh;
+    height: 40vh;
+  }
+
+  .order-card {
+    width: 30vh;
+    height: 100%;
+    margin-left: -110px;
+    margin-right: 60px;
+  }
+
+  .btn-instructions {
+    margin-top: 0px;
+  }
+
+  .row .col.s12 {
+    margin-left: auto;
+  }
+
+  
+}
+@media only screen and (max-width: 650px) {
+  .logo {
+    font-size: 30px;
+  }
+  .flex {
+    display: flex;
+  }
+
+  .flexing {
+     flex: 1 0 100%;
+  }
+  .row .col.s6 {
+    width: 100%;
+  }
+
+  .locations {
+    text-align: left;
+  }
+
+  #map {
+    width: 40vh;
+    height: 40vh;
+  }
+
+  .order-card {
+    width: 40vh;
+    height: 100%;
+    margin-left: -110px;
+    margin-right: 60px
+  }
+  
+
+  .btn-instructions {
+    margin-top: 0px;
+  }
+
+}
+
+

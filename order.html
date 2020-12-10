@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Taco Lover &hearts;</title>
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/taco.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
+  <body>
+    <div id="page-container">
+      <div id="content">
+    <!--header/navigation-->
+    <header>
+        <nav class="red lighten-1">
+            <div class="nav-wrapper">
+              <a class ="logo" href="index.html">Taco Lover &hearts;</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>              <ul id="nav-mobile" class="right">
+                <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="make.html">Make a Taco</a></li>
+                <li><a href="my-recipes.html">My Recipes</a></li>
+                <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+                </ul>
+            </div>
+          </nav>
+
+          <ul class="sidenav" id="mobile-demo">
+            <a class ="logo-small" href="index.html">Taco Lover &hearts;</a>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="make.html">Make a Taco</a></li>
+            <li><a href="my-recipes.html">My Recipes</a></li>
+            <li><a href="favorite-spots.html">Saved Taco Locations</a></li>
+          </ul>
+    </header>
+
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Error</h4>
+      <p>You denied the request from the browswer</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+    </div>
+  </div>
+  <!-- end modal -->
+            
+    <div class="container">
+      <div class="order">
+        <div class="order-taco">
+          <h4>Order Taco</h4>
+        </div>
+      </div>
+
+      <div class="row flex">
+        <section class="col s7 m7 flexing">
+                 <!-- button to get geolocation current location -->
+            <p class="btn-instructions ">Click below to find a taco joint nearby!</p>
+            <button class="waves-effect waves-light btn-small red lighten-1" id="my-location"><span class="btn-text">Use My Location <i class="large material-icons">gps_fixed</span></i></button>
+            <div class="spots-near-you" id="map">
+              <!-- map goes here -->
+            </div>
+        </section>
+     
+        <section class="locations col s5 m5 flexing"> 
+          <h5>Locations Near You</h5>
+          <div id="data-list"> 
+          <!-- this is where the card pops up -->
+          </div>
+          <button onclick="window.location='./favorite-spots.html'" id="view-recipes-button" class="waves-effect waves-light btn-small red lighten-1">View Saved Locations</button>
+        </section>
+      </div>
+  
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <footer>
+        Made With &hearts; By Alexandra, Veronica, Kesiah, and Carter
+      </footer>
+    </div>
+
+  </div>
+
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZf8YFMxQn0Vz68m7s7x9eWssFYa9GeIQ&callback=initMap&libraries=places"
+    ></script>
+    <script src="assets/js/order.js"></script>
+    <script> M.AutoInit(); </script>
+  </body>
+</html>
