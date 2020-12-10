@@ -11,10 +11,10 @@ function formatPlace(data) {
       </div>
       <div class="card-content">
         <p>Address: ${data.address}</p>
-        <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny">call</i>
+        <p>Phone Number:<a href="tel:${data.phoneNumber}"><i class="material-icons tiny link">call</i>
         </a> ${data.phoneNumber}</p>
         <p>Rating: ${data.rating}</p>
-        <p><a href="${data.website}">Link to Website</a></p>
+        <p><a href="${data.website}" class="link">Link to Website</a></p>
       </div>
     </div>
   </div>`;
