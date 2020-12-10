@@ -16,7 +16,7 @@ Screenshots
 	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Make%20Page.png?raw=true
 	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Order%20Page.png?raw=true
 	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Saved%20Locations.png?raw=true
-	      https:github.com/akelstrom/taco-app/blob/develop/assets/Images/Saved%20Recipes.png?raw=true
+	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Saved%20Recipes.png?raw=true
 Tech Used
     •	Languages: HTML, CSS, JavaScript
     •	APIs: 
