@@ -18,7 +18,7 @@ if (!savedRecipes) {
 //generate random recipe
 var randomRecipe = function() {
     fetch(
-        'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
+        'https://taco-randomizer.herokuapp.com/random/?full-taco=true'
     )
     .then(function(response) {
         return response.json();
