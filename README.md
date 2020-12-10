@@ -11,11 +11,12 @@ Motivation
     We LOVE tacos! Tacos are very popular, and there are plenty of taco lovers just like us that would use our application. Our goal was to create an app that we would use ourselves, and that others would use as well	, to enjoy tacos in any form.
 
 Screenshots
-	      ![Screenshot1](./assets/images/home-page.png)
-          ![Screenshot2](./assets/images/make-page.png)
-          ![Screenshot3](./assets/images/order-page.png)
-          ![Screenshot4](./assets/images/saved-locations.png)
-          ![Screenshot4](./assets/images/saved-recipes.png)
+
+	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Home%20Page.png?raw=true
+	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Make%20Page.png?raw=true
+	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Order%20Page.png?raw=true
+	      https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Saved%20Locations.png?raw=true
+	      https:github.com/akelstrom/taco-app/blob/develop/assets/Images/Saved%20Recipes.png?raw=true
 Tech Used
     •	Languages: HTML, CSS, JavaScript
     •	APIs: 
