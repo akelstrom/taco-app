@@ -18,18 +18,18 @@ We LOVE tacos! Tacos are very popular, and there are plenty of taco lovers just 
 ![screenshot](https://github.com/akelstrom/taco-app/blob/develop/assets/Images/Saved%20Recipes.png?raw=true)
 
 # Tech Used
-    *	Languages: HTML, CSS, JavaScript
-    *	APIs: 
+  *   Languages: HTML, CSS, JavaScript
+  *	APIs: 
         *Taco Fancy: Recipe randomizer;
         *Google Maps API: Search for nearby taco locations, and displaying returned data onto a card
 # Frameworks/Libraries
-    *  	Materialize: Styling: Nav-bar, buttons, Layout, Cards, Dropdown Menu, icons, Modals and Toasts 
-    *   Google Icons: Used with Materialize
-    *   Google Fonts: Logo font (shrikhand)
-    *   Icons8.com: Colored taco icon
-    *   Markdown-It: Used to parse markdown into JSON (Taco Fancy API)
+   *   Materialize: Styling: Nav-bar, buttons, Layout, Cards, Dropdown Menu, icons, Modals and Toasts 
+   *   Google Icons: Used with Materialize
+   *   Google Fonts: Logo font (shrikhand)
+   *   Icons8.com: Colored taco icon
+   *   Markdown-It: Used to parse markdown into JSON (Taco Fancy API)
 
 ## Features
-    *   Taco Lover is a web app that lets the user search for both taco recipes to make at home or places nearby where   they can order tacos!
-    *   The user can save both taco recipes and taco locations for future reference.
+   *   Taco Lover is a web app that lets the user search for both taco recipes to make at home or places nearby where   they can order tacos!
+   *   The user can save both taco recipes and taco locations for future reference.
 
