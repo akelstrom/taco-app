@@ -1,4 +1,4 @@
-# Taco App
+# Taco Lover App
 The Taco Lover app is designed for just that...people who love tacos! 
 
 We made a web app that allows the user to choose how they enjoy their tacos: make them at home or order out? 
@@ -6,6 +6,8 @@ We made a web app that allows the user to choose how they enjoy their tacos: mak
 With Taco Lover, the user has the option to choose between being shown a random recipe to make themselves or taco spots in their area.
 
 User can even save them for future reference! 	
+
+#### Visit our web application here: [Taco Lover](https://akelstrom.github.io/taco-app/)
 
 ## Motivation
 We LOVE tacos! Tacos are very popular, and there are plenty of taco lovers just like us that would use our application. Our goal was to create an app that we would use ourselves, and that others would use as well, to enjoy tacos in any form.
