@@ -7,6 +7,9 @@ The user can even save them for future reference!
 
 #### Visit our web application here: [Taco Lover](https://akelstrom.github.io/taco-app/)
 
+## Colaborators:
+Carter Sloan, Kesiah Patil, Veronica Martinez and Alexandra Kelstrom
+
 ## Motivation
 We LOVE tacos! Tacos are very popular, and there are plenty of taco lovers just like us that would use our application. Our goal was to create an app that we would use ourselves, and that others would use as well, to enjoy tacos in any form.
 
